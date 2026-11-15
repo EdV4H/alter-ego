@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ["20", "22", "24"]
+    name: test (Node ${{ matrix.node-version }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.13.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # 型の定義元は JSON Schema。生成物がコミット済みのものと一致するか検査する（ADR-0010）
+      - run: pnpm --filter @edv4h/alter-ego-schema generate && git diff --exit-code packages/schema/src/types.generated.ts
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
+      # 公開パッケージの exports / files がビルド成果物と一致しているかを検査する
+      - run: pnpm lint:pkg
+
+  # デモアプリの煙テスト（Playwright）。ブラウザの用意に時間がかかるので、Node 1 本だけで回す
+  e2e:
+    runs-on: ubuntu-latest
+    name: e2e (react-web)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.13.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @alter-ego/app-react-web exec playwright install --with-deps chromium
+      - run: pnpm --filter @alter-ego/app-react-web test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            apps/react-web/playwright-report/
+            apps/react-web/test-results/
+          retention-days: 7

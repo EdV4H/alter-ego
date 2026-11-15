@@ -1,0 +1,32 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.swatch {
+  position: relative;
+  width: var(--swatch-size);
+  height: var(--swatch-size);
+  padding: 0;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  /* 色が半透明でも見分けられるよう、下に市松模様を敷く */
+  background-color: var(--bg-surface);
+  background-image: var(--checker);
+  background-size: var(--checker-size);
+  background-position: var(--checker-position);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+}
+
+.swatch[aria-pressed="true"] {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 2px var(--bg-surface) inset;
+  cursor: default;
+}

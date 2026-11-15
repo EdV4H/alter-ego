@@ -1,0 +1,824 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "name": "demo-mascot",
+    "description": "人型でないアバターの例。耳と目の SlotGroup、他の Slot の色を使うしっぽ、色を変えない口を含む"
+  },
+  "canvas": {
+    "width": 400,
+    "height": 400
+  },
+  "slots": [
+    {
+      "id": "body",
+      "name": "体",
+      "description": "体全体の形。color は体の色",
+      "zIndex": 10,
+      "required": true,
+      "palette": [
+        "#F6C177",
+        "#FFFFFF",
+        "#FCE3D0",
+        "#F7B2BD",
+        "#B8E0D2",
+        "#9AD0EC",
+        "#C7B8FF",
+        "#FFE066",
+        "#A0A0A0",
+        "#5B4636"
+      ],
+      "x-perceive": {
+        "colorHint": "写真の人物の服や髪から、キャラクターの体に合う色を 1 色"
+      }
+    },
+    {
+      "id": "ear_left",
+      "name": "耳 (左)",
+      "description": "キャラクター自身の左耳 (向かって右)。color は耳の内側の色",
+      "zIndex": 8,
+      "palette": [
+        "#F4A7B9",
+        "#FCE3D0",
+        "#FFFFFF",
+        "#C7B8FF",
+        "#9AD0EC"
+      ],
+      "placement": {
+        "x": 236,
+        "y": 66,
+        "width": 96,
+        "height": 96
+      }
+    },
+    {
+      "id": "ear_right",
+      "name": "耳 (右)",
+      "description": "キャラクター自身の右耳 (向かって左)",
+      "zIndex": 8,
+      "palette": [
+        "#F4A7B9",
+        "#FCE3D0",
+        "#FFFFFF",
+        "#C7B8FF",
+        "#9AD0EC"
+      ],
+      "placement": {
+        "x": 68,
+        "y": 66,
+        "width": 96,
+        "height": 96
+      }
+    },
+    {
+      "id": "eye_left",
+      "name": "目 (左)",
+      "description": "キャラクター自身の左目 (向かって右)。color は目の色",
+      "zIndex": 30,
+      "required": true,
+      "palette": [
+        "#3A2417",
+        "#1A1A1A",
+        "#3A6BC4",
+        "#3A8A4F",
+        "#9B8CF2",
+        "#E76B6B"
+      ],
+      "placement": {
+        "x": 222,
+        "y": 178,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "eye_right",
+      "name": "目 (右)",
+      "description": "キャラクター自身の右目 (向かって左)",
+      "zIndex": 30,
+      "required": true,
+      "palette": [
+        "#3A2417",
+        "#1A1A1A",
+        "#3A6BC4",
+        "#3A8A4F",
+        "#9B8CF2",
+        "#E76B6B"
+      ],
+      "placement": {
+        "x": 114,
+        "y": 178,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "mouth",
+      "name": "口",
+      "description": "口の形。色は変えない",
+      "zIndex": 30,
+      "required": true,
+      "placement": {
+        "x": 168,
+        "y": 240,
+        "width": 64,
+        "height": 48
+      }
+    },
+    {
+      "id": "cheek",
+      "name": "ほっぺ",
+      "description": "ほっぺの模様。color はほっぺの色",
+      "zIndex": 25,
+      "palette": [
+        "#F7A6B4",
+        "#FF8A65",
+        "#E76B6B",
+        "#C7B8FF"
+      ]
+    },
+    {
+      "id": "pattern",
+      "name": "模様",
+      "description": "体に乗る模様。color は模様の色",
+      "zIndex": 15,
+      "palette": [
+        "#FFF4E0",
+        "#FFFFFF",
+        "#5B4636",
+        "#E0A867",
+        "#9AD0EC"
+      ]
+    },
+    {
+      "id": "tail",
+      "name": "しっぽ",
+      "description": "体の後ろに描く。色は体の色に合わせる",
+      "zIndex": 4
+    },
+    {
+      "id": "accessory",
+      "name": "アクセサリ",
+      "description": "頭の上の飾り。color は飾りの色",
+      "zIndex": 50,
+      "palette": [
+        "#E5484D",
+        "#F5C542",
+        "#6FBF73",
+        "#3A6BC4",
+        "#9B8CF2",
+        "#1A1A1A"
+      ],
+      "placement": {
+        "x": 136,
+        "y": 40,
+        "width": 128,
+        "height": 96
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "ear",
+      "name": "耳",
+      "slots": [
+        "ear_left",
+        "ear_right"
+      ],
+      "mirror": true
+    },
+    {
+      "id": "eye",
+      "name": "目",
+      "slots": [
+        "eye_left",
+        "eye_right"
+      ],
+      "mirror": true
+    }
+  ],
+  "parts": [
+    {
+      "id": "body-round",
+      "slotId": "body",
+      "name": "まる",
+      "assetId": "asset-body-round",
+      "colorable": true
+    },
+    {
+      "id": "body-drop",
+      "slotId": "body",
+      "name": "しずく",
+      "assetId": "asset-body-drop",
+      "colorable": true
+    },
+    {
+      "id": "body-square",
+      "slotId": "body",
+      "name": "しかく",
+      "assetId": "asset-body-square",
+      "colorable": true
+    },
+    {
+      "id": "ear-left-cat",
+      "slotId": "ear_left",
+      "name": "ネコ耳",
+      "assetId": "asset-ear-left-cat",
+      "colorable": true,
+      "pairKey": "cat"
+    },
+    {
+      "id": "ear-left-round",
+      "slotId": "ear_left",
+      "name": "クマ耳",
+      "assetId": "asset-ear-left-round",
+      "colorable": true,
+      "pairKey": "round"
+    },
+    {
+      "id": "ear-left-bunny",
+      "slotId": "ear_left",
+      "name": "ウサギ耳",
+      "assetId": "asset-ear-left-bunny",
+      "colorable": true,
+      "pairKey": "bunny"
+    },
+    {
+      "id": "ear-right-cat",
+      "slotId": "ear_right",
+      "name": "ネコ耳",
+      "assetId": "asset-ear-right-cat",
+      "colorable": true,
+      "pairKey": "cat"
+    },
+    {
+      "id": "ear-right-round",
+      "slotId": "ear_right",
+      "name": "クマ耳",
+      "assetId": "asset-ear-right-round",
+      "colorable": true,
+      "pairKey": "round"
+    },
+    {
+      "id": "ear-right-bunny",
+      "slotId": "ear_right",
+      "name": "ウサギ耳",
+      "assetId": "asset-ear-right-bunny",
+      "colorable": true,
+      "pairKey": "bunny"
+    },
+    {
+      "id": "eye-left-dot",
+      "slotId": "eye_left",
+      "name": "てん",
+      "assetId": "asset-eye-left-dot",
+      "colorable": true,
+      "pairKey": "dot"
+    },
+    {
+      "id": "eye-left-sparkle",
+      "slotId": "eye_left",
+      "name": "キラキラ",
+      "assetId": "asset-eye-left-sparkle",
+      "colorable": true,
+      "pairKey": "sparkle"
+    },
+    {
+      "id": "eye-left-happy",
+      "slotId": "eye_left",
+      "name": "にっこり",
+      "assetId": "asset-eye-left-happy",
+      "colorable": true,
+      "pairKey": "happy"
+    },
+    {
+      "id": "eye-left-sleepy",
+      "slotId": "eye_left",
+      "name": "ねむい",
+      "assetId": "asset-eye-left-sleepy",
+      "colorable": true,
+      "pairKey": "sleepy"
+    },
+    {
+      "id": "eye-right-dot",
+      "slotId": "eye_right",
+      "name": "てん",
+      "assetId": "asset-eye-right-dot",
+      "colorable": true,
+      "pairKey": "dot"
+    },
+    {
+      "id": "eye-right-sparkle",
+      "slotId": "eye_right",
+      "name": "キラキラ",
+      "assetId": "asset-eye-right-sparkle",
+      "colorable": true,
+      "pairKey": "sparkle"
+    },
+    {
+      "id": "eye-right-happy",
+      "slotId": "eye_right",
+      "name": "にっこり",
+      "assetId": "asset-eye-right-happy",
+      "colorable": true,
+      "pairKey": "happy"
+    },
+    {
+      "id": "eye-right-sleepy",
+      "slotId": "eye_right",
+      "name": "ねむい",
+      "assetId": "asset-eye-right-sleepy",
+      "colorable": true,
+      "pairKey": "sleepy"
+    },
+    {
+      "id": "mouth-smile",
+      "slotId": "mouth",
+      "name": "にこ",
+      "assetId": "asset-mouth-smile"
+    },
+    {
+      "id": "mouth-open",
+      "slotId": "mouth",
+      "name": "あーん",
+      "assetId": "asset-mouth-open"
+    },
+    {
+      "id": "mouth-cat",
+      "slotId": "mouth",
+      "name": "ω",
+      "assetId": "asset-mouth-cat"
+    },
+    {
+      "id": "cheek-round",
+      "slotId": "cheek",
+      "name": "まる",
+      "assetId": "asset-cheek-round",
+      "colorable": true
+    },
+    {
+      "id": "cheek-line",
+      "slotId": "cheek",
+      "name": "しゃっしゃっ",
+      "assetId": "asset-cheek-line",
+      "colorable": true
+    },
+    {
+      "id": "pattern-belly",
+      "slotId": "pattern",
+      "name": "おなか",
+      "assetId": "asset-pattern-belly",
+      "colorable": true
+    },
+    {
+      "id": "pattern-spots",
+      "slotId": "pattern",
+      "name": "水玉",
+      "assetId": "asset-pattern-spots",
+      "colorable": true
+    },
+    {
+      "id": "pattern-stripe",
+      "slotId": "pattern",
+      "name": "おでこのしま",
+      "assetId": "asset-pattern-stripe",
+      "colorable": true
+    },
+    {
+      "id": "tail-curl",
+      "slotId": "tail",
+      "name": "くるりん",
+      "assetId": "asset-tail-curl"
+    },
+    {
+      "id": "tail-fluffy",
+      "slotId": "tail",
+      "name": "ふさふさ",
+      "assetId": "asset-tail-fluffy"
+    },
+    {
+      "id": "acc-ribbon",
+      "slotId": "accessory",
+      "name": "リボン",
+      "assetId": "asset-acc-ribbon",
+      "colorable": true
+    },
+    {
+      "id": "acc-crown",
+      "slotId": "accessory",
+      "name": "王冠",
+      "assetId": "asset-acc-crown",
+      "colorable": true
+    },
+    {
+      "id": "acc-leaf",
+      "slotId": "accessory",
+      "name": "葉っぱ",
+      "assetId": "asset-acc-leaf",
+      "colorable": true
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset-body-round",
+      "kind": "svg",
+      "src": "mascot/body-round.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-body-drop",
+      "kind": "svg",
+      "src": "mascot/body-drop.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-body-square",
+      "kind": "svg",
+      "src": "mascot/body-square.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-ear-left-cat",
+      "kind": "svg",
+      "src": "mascot/ear-left-cat.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        },
+        {
+          "target": "#F4A7B9",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-ear-left-round",
+      "kind": "svg",
+      "src": "mascot/ear-left-round.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        },
+        {
+          "target": "#F4A7B9",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-ear-left-bunny",
+      "kind": "svg",
+      "src": "mascot/ear-left-bunny.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        },
+        {
+          "target": "#F4A7B9",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-ear-right-cat",
+      "kind": "svg",
+      "src": "mascot/ear-right-cat.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        },
+        {
+          "target": "#F4A7B9",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-ear-right-round",
+      "kind": "svg",
+      "src": "mascot/ear-right-round.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        },
+        {
+          "target": "#F4A7B9",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-ear-right-bunny",
+      "kind": "svg",
+      "src": "mascot/ear-right-bunny.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        },
+        {
+          "target": "#F4A7B9",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-dot",
+      "kind": "svg",
+      "src": "mascot/eye-left-dot.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-sparkle",
+      "kind": "svg",
+      "src": "mascot/eye-left-sparkle.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-happy",
+      "kind": "svg",
+      "src": "mascot/eye-left-happy.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-sleepy",
+      "kind": "svg",
+      "src": "mascot/eye-left-sleepy.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-dot",
+      "kind": "svg",
+      "src": "mascot/eye-right-dot.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-sparkle",
+      "kind": "svg",
+      "src": "mascot/eye-right-sparkle.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-happy",
+      "kind": "svg",
+      "src": "mascot/eye-right-happy.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-sleepy",
+      "kind": "svg",
+      "src": "mascot/eye-right-sleepy.svg",
+      "colorBindings": [
+        {
+          "target": "#3A2417",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-mouth-smile",
+      "kind": "svg",
+      "src": "mascot/mouth-smile.svg"
+    },
+    {
+      "id": "asset-mouth-open",
+      "kind": "svg",
+      "src": "mascot/mouth-open.svg"
+    },
+    {
+      "id": "asset-mouth-cat",
+      "kind": "svg",
+      "src": "mascot/mouth-cat.svg"
+    },
+    {
+      "id": "asset-cheek-round",
+      "kind": "svg",
+      "src": "mascot/cheek-round.svg",
+      "colorBindings": [
+        {
+          "target": "#F7A6B4",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-cheek-line",
+      "kind": "svg",
+      "src": "mascot/cheek-line.svg",
+      "colorBindings": [
+        {
+          "target": "#F7A6B4",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-pattern-belly",
+      "kind": "svg",
+      "src": "mascot/pattern-belly.svg",
+      "colorBindings": [
+        {
+          "target": "#FFF4E0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-pattern-spots",
+      "kind": "svg",
+      "src": "mascot/pattern-spots.svg",
+      "colorBindings": [
+        {
+          "target": "#FFF4E0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-pattern-stripe",
+      "kind": "svg",
+      "src": "mascot/pattern-stripe.svg",
+      "colorBindings": [
+        {
+          "target": "#FFF4E0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-tail-curl",
+      "kind": "svg",
+      "src": "mascot/tail-curl.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-tail-fluffy",
+      "kind": "svg",
+      "src": "mascot/tail-fluffy.svg",
+      "colorBindings": [
+        {
+          "target": "#F6C177",
+          "from": [
+            "body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-acc-ribbon",
+      "kind": "svg",
+      "src": "mascot/acc-ribbon.svg",
+      "colorBindings": [
+        {
+          "target": "#E5484D",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-acc-crown",
+      "kind": "svg",
+      "src": "mascot/acc-crown.svg",
+      "colorBindings": [
+        {
+          "target": "#E5484D",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-acc-leaf",
+      "kind": "svg",
+      "src": "mascot/acc-leaf.svg",
+      "colorBindings": [
+        {
+          "target": "#E5484D",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    }
+  ]
+}

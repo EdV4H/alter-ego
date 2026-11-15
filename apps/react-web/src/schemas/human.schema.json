@@ -1,0 +1,5181 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "name": "step-g1-accessory"
+  },
+  "canvas": {
+    "width": 400,
+    "height": 400
+  },
+  "slots": [
+    {
+      "id": "face",
+      "name": "顔",
+      "description": "顔の輪郭。color は肌の色",
+      "zIndex": 10,
+      "required": true,
+      "palette": [
+        "#ffffff",
+        "#fce3d0",
+        "#fae3d2",
+        "#f4d3b3",
+        "#f0c8a8",
+        "#e1ad88",
+        "#deaa84",
+        "#c2845f",
+        "#b88060",
+        "#8c5635",
+        "#7a4828",
+        "#4a3020",
+        "#50C7FF",
+        "#e54a8a",
+        "#9b8cf2"
+      ],
+      "x-perceive": {
+        "colorHint": "肌の色 (写真の顔の代表的な肌色を 1 色サンプリング)"
+      }
+    },
+    {
+      "id": "hair_front",
+      "name": "髪 (前)",
+      "description": "前髪と髪全体。color は髪の色",
+      "zIndex": 45,
+      "required": true,
+      "palette": [
+        "#FCD0D0",
+        "#F8A5A5",
+        "#E76B6B",
+        "#C73E3E",
+        "#F6CFA0",
+        "#E0A867",
+        "#A47148",
+        "#6B4423",
+        "#3A2417",
+        "#1a1a1a",
+        "#C7B8FF",
+        "#9b8cf2",
+        "#FFE066",
+        "#7AC74F"
+      ],
+      "x-perceive": {
+        "colorHint": "髪の色 (写真の髪のメイン色)"
+      }
+    },
+    {
+      "id": "hair_back",
+      "name": "髪 (後ろ)",
+      "description": "後ろ髪。hair_front と組で使う",
+      "zIndex": 0,
+      "palette": [
+        "#FCD0D0",
+        "#F8A5A5",
+        "#E76B6B",
+        "#C73E3E",
+        "#F6CFA0",
+        "#E0A867",
+        "#A47148",
+        "#6B4423",
+        "#3A2417",
+        "#1a1a1a",
+        "#C7B8FF",
+        "#9b8cf2",
+        "#FFE066",
+        "#7AC74F"
+      ]
+    },
+    {
+      "id": "eye_left",
+      "name": "目 (左)",
+      "description": "キャラクター自身の左目 (写真では向かって右)。color は瞳の色",
+      "zIndex": 30,
+      "required": true,
+      "palette": [
+        "#009BFF",
+        "#3A6BC4",
+        "#4F8AC2",
+        "#7AB8E0",
+        "#3A8A4F",
+        "#6FBF73",
+        "#A47148",
+        "#6B4423",
+        "#3A2417",
+        "#1a1a1a",
+        "#9b8cf2",
+        "#C7B8FF",
+        "#FF8AA8",
+        "#E76B6B"
+      ],
+      "placement": {
+        "x": 132,
+        "y": 142,
+        "width": 128,
+        "height": 128
+      },
+      "x-perceive": {
+        "colorHint": "瞳の色 (虹彩。 判別困難なら茶系で)"
+      }
+    },
+    {
+      "id": "eye_right",
+      "name": "目 (右)",
+      "description": "キャラクター自身の右目 (写真では向かって左)",
+      "zIndex": 20,
+      "required": true,
+      "palette": [
+        "#009BFF",
+        "#3A6BC4",
+        "#4F8AC2",
+        "#7AB8E0",
+        "#3A8A4F",
+        "#6FBF73",
+        "#A47148",
+        "#6B4423",
+        "#3A2417",
+        "#1a1a1a",
+        "#9b8cf2",
+        "#C7B8FF",
+        "#FF8AA8",
+        "#E76B6B"
+      ],
+      "placement": {
+        "x": 68,
+        "y": 142,
+        "width": 128,
+        "height": 128
+      }
+    },
+    {
+      "id": "eyebrow_left",
+      "name": "眉 (左)",
+      "description": "キャラクター自身の左眉 (写真では向かって右)。色は髪の色に従う",
+      "zIndex": 40,
+      "required": true,
+      "palette": [
+        "#FCD0D0",
+        "#F8A5A5",
+        "#E76B6B",
+        "#C73E3E",
+        "#F6CFA0",
+        "#E0A867",
+        "#A47148",
+        "#6B4423",
+        "#3A2417",
+        "#1a1a1a",
+        "#C7B8FF",
+        "#9b8cf2",
+        "#FFE066",
+        "#7AC74F"
+      ],
+      "placement": {
+        "x": 142,
+        "y": 110,
+        "width": 112,
+        "height": 112
+      }
+    },
+    {
+      "id": "eyebrow_right",
+      "name": "眉 (右)",
+      "description": "キャラクター自身の右眉 (写真では向かって左)",
+      "zIndex": 35,
+      "required": true,
+      "palette": [
+        "#FCD0D0",
+        "#F8A5A5",
+        "#E76B6B",
+        "#C73E3E",
+        "#F6CFA0",
+        "#E0A867",
+        "#A47148",
+        "#6B4423",
+        "#3A2417",
+        "#1a1a1a",
+        "#C7B8FF",
+        "#9b8cf2",
+        "#FFE066",
+        "#7AC74F"
+      ],
+      "placement": {
+        "x": 78,
+        "y": 110,
+        "width": 112,
+        "height": 112
+      }
+    },
+    {
+      "id": "nose",
+      "name": "鼻",
+      "description": "鼻。色は肌の色に従う",
+      "zIndex": 25,
+      "required": true,
+      "placement": {
+        "x": 92,
+        "y": 168,
+        "width": 128,
+        "height": 128
+      }
+    },
+    {
+      "id": "mouth",
+      "name": "口",
+      "zIndex": 15,
+      "required": true,
+      "placement": {
+        "x": 24,
+        "y": 130,
+        "width": 288,
+        "height": 288
+      }
+    },
+    {
+      "id": "accessory_front",
+      "name": "アクセサリ (前面)",
+      "zIndex": 50
+    },
+    {
+      "id": "accessory_back",
+      "name": "アクセサリ (背面)",
+      "zIndex": 5
+    },
+    {
+      "id": "glasses",
+      "name": "メガネ",
+      "description": "メガネ",
+      "zIndex": 48,
+      "palette": [
+        "#00FFFFff",
+        "#3A6BC4ff",
+        "#7AC74Fff",
+        "#FFE066ff",
+        "#E76B6Bff",
+        "#FF8AA8ff",
+        "#9b8cf2ff",
+        "#A47148ff",
+        "#4a3020ff",
+        "#1a1a1aff",
+        "#00FFFFb3",
+        "#3A6BC4b3",
+        "#7AC74Fb3",
+        "#FFE066b3",
+        "#E76B6Bb3",
+        "#FF8AA8b3",
+        "#9b8cf2b3",
+        "#A47148b3",
+        "#4a3020b3",
+        "#1a1a1ab3"
+      ],
+      "x-perceive": {
+        "hint": "メガネは見落としやすいので注意してください"
+      }
+    }
+  ],
+  "parts": [
+    {
+      "id": "face-01",
+      "slotId": "face",
+      "name": "顔 1",
+      "assetId": "asset-face-01"
+    },
+    {
+      "id": "face-02",
+      "slotId": "face",
+      "name": "顔 2",
+      "assetId": "asset-face-02"
+    },
+    {
+      "id": "face-03",
+      "slotId": "face",
+      "name": "顔 3",
+      "assetId": "asset-face-03"
+    },
+    {
+      "id": "face-04",
+      "slotId": "face",
+      "name": "顔 4",
+      "assetId": "asset-face-04"
+    },
+    {
+      "id": "face-05",
+      "slotId": "face",
+      "name": "顔 5",
+      "assetId": "asset-face-05"
+    },
+    {
+      "id": "hair-back-02",
+      "slotId": "hair_back",
+      "name": "髪後ろ 2",
+      "assetId": "asset-hair-back-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "hair-back-03",
+      "slotId": "hair_back",
+      "name": "髪後ろ 3",
+      "assetId": "asset-hair-back-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "hair-back-04",
+      "slotId": "hair_back",
+      "name": "髪後ろ 4",
+      "assetId": "asset-hair-back-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "hair-back-05",
+      "slotId": "hair_back",
+      "name": "髪後ろ 5",
+      "assetId": "asset-hair-back-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "hair-back-07",
+      "slotId": "hair_back",
+      "name": "髪後ろ 7",
+      "assetId": "asset-hair-back-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "hair-back-08",
+      "slotId": "hair_back",
+      "name": "髪後ろ 8",
+      "assetId": "asset-hair-back-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "hair-back-12",
+      "slotId": "hair_back",
+      "name": "髪後ろ 12",
+      "assetId": "asset-hair-back-12",
+      "pairKey": "12"
+    },
+    {
+      "id": "hair-back-14",
+      "slotId": "hair_back",
+      "name": "髪後ろ 14",
+      "assetId": "asset-hair-back-14",
+      "pairKey": "14"
+    },
+    {
+      "id": "hair-back-15",
+      "slotId": "hair_back",
+      "name": "髪後ろ 15",
+      "assetId": "asset-hair-back-15",
+      "pairKey": "15"
+    },
+    {
+      "id": "hair-back-16",
+      "slotId": "hair_back",
+      "name": "髪後ろ 16",
+      "assetId": "asset-hair-back-16",
+      "pairKey": "16"
+    },
+    {
+      "id": "hair-back-17",
+      "slotId": "hair_back",
+      "name": "髪後ろ 17",
+      "assetId": "asset-hair-back-17",
+      "pairKey": "17"
+    },
+    {
+      "id": "hair-back-18",
+      "slotId": "hair_back",
+      "name": "髪後ろ 18",
+      "assetId": "asset-hair-back-18",
+      "pairKey": "18"
+    },
+    {
+      "id": "hair-back-19",
+      "slotId": "hair_back",
+      "name": "髪後ろ 19",
+      "assetId": "asset-hair-back-19",
+      "pairKey": "19"
+    },
+    {
+      "id": "hair-back-20",
+      "slotId": "hair_back",
+      "name": "髪後ろ 20",
+      "assetId": "asset-hair-back-20",
+      "pairKey": "20"
+    },
+    {
+      "id": "hair-back-21",
+      "slotId": "hair_back",
+      "name": "髪後ろ 21",
+      "assetId": "asset-hair-back-21",
+      "pairKey": "21"
+    },
+    {
+      "id": "hair-back-24",
+      "slotId": "hair_back",
+      "name": "髪後ろ 24",
+      "assetId": "asset-hair-back-24",
+      "pairKey": "24"
+    },
+    {
+      "id": "hair-back-28",
+      "slotId": "hair_back",
+      "name": "髪後ろ 28",
+      "assetId": "asset-hair-back-28",
+      "pairKey": "28"
+    },
+    {
+      "id": "hair-back-29",
+      "slotId": "hair_back",
+      "name": "髪後ろ 29",
+      "assetId": "asset-hair-back-29",
+      "pairKey": "29"
+    },
+    {
+      "id": "hair-back-31",
+      "slotId": "hair_back",
+      "name": "髪後ろ 31",
+      "assetId": "asset-hair-back-31",
+      "pairKey": "31"
+    },
+    {
+      "id": "hair-back-32",
+      "slotId": "hair_back",
+      "name": "髪後ろ 32",
+      "assetId": "asset-hair-back-32",
+      "pairKey": "32"
+    },
+    {
+      "id": "hair-back-33",
+      "slotId": "hair_back",
+      "name": "髪後ろ 33",
+      "assetId": "asset-hair-back-33",
+      "pairKey": "33"
+    },
+    {
+      "id": "hair-back-34",
+      "slotId": "hair_back",
+      "name": "髪後ろ 34",
+      "assetId": "asset-hair-back-34",
+      "pairKey": "34"
+    },
+    {
+      "id": "hair-back-35",
+      "slotId": "hair_back",
+      "name": "髪後ろ 35",
+      "assetId": "asset-hair-back-35",
+      "pairKey": "35"
+    },
+    {
+      "id": "hair-back-36",
+      "slotId": "hair_back",
+      "name": "髪後ろ 36",
+      "assetId": "asset-hair-back-36",
+      "pairKey": "36"
+    },
+    {
+      "id": "hair-back-38",
+      "slotId": "hair_back",
+      "name": "髪後ろ 38",
+      "assetId": "asset-hair-back-38",
+      "pairKey": "38"
+    },
+    {
+      "id": "hair-back-39",
+      "slotId": "hair_back",
+      "name": "髪後ろ 39",
+      "assetId": "asset-hair-back-39",
+      "pairKey": "39"
+    },
+    {
+      "id": "hair-front-01",
+      "slotId": "hair_front",
+      "name": "髪前 1",
+      "assetId": "asset-hair-front-01",
+      "pairKey": "01"
+    },
+    {
+      "id": "hair-front-02",
+      "slotId": "hair_front",
+      "name": "髪前 2",
+      "assetId": "asset-hair-front-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "hair-front-03",
+      "slotId": "hair_front",
+      "name": "髪前 3",
+      "assetId": "asset-hair-front-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "hair-front-04",
+      "slotId": "hair_front",
+      "name": "髪前 4",
+      "assetId": "asset-hair-front-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "hair-front-05",
+      "slotId": "hair_front",
+      "name": "髪前 5",
+      "assetId": "asset-hair-front-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "hair-front-06",
+      "slotId": "hair_front",
+      "name": "髪前 6",
+      "assetId": "asset-hair-front-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "hair-front-07",
+      "slotId": "hair_front",
+      "name": "髪前 7",
+      "assetId": "asset-hair-front-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "hair-front-08",
+      "slotId": "hair_front",
+      "name": "髪前 8",
+      "assetId": "asset-hair-front-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "hair-front-09",
+      "slotId": "hair_front",
+      "name": "髪前 9",
+      "assetId": "asset-hair-front-09",
+      "pairKey": "09"
+    },
+    {
+      "id": "hair-front-10",
+      "slotId": "hair_front",
+      "name": "髪前 10",
+      "assetId": "asset-hair-front-10",
+      "pairKey": "10"
+    },
+    {
+      "id": "hair-front-11",
+      "slotId": "hair_front",
+      "name": "髪前 11",
+      "assetId": "asset-hair-front-11",
+      "pairKey": "11"
+    },
+    {
+      "id": "hair-front-12",
+      "slotId": "hair_front",
+      "name": "髪前 12",
+      "assetId": "asset-hair-front-12",
+      "pairKey": "12"
+    },
+    {
+      "id": "hair-front-13",
+      "slotId": "hair_front",
+      "name": "髪前 13",
+      "assetId": "asset-hair-front-13",
+      "pairKey": "13"
+    },
+    {
+      "id": "hair-front-14",
+      "slotId": "hair_front",
+      "name": "髪前 14",
+      "assetId": "asset-hair-front-14",
+      "pairKey": "14"
+    },
+    {
+      "id": "hair-front-15",
+      "slotId": "hair_front",
+      "name": "髪前 15",
+      "assetId": "asset-hair-front-15",
+      "pairKey": "15"
+    },
+    {
+      "id": "hair-front-16",
+      "slotId": "hair_front",
+      "name": "髪前 16",
+      "assetId": "asset-hair-front-16",
+      "pairKey": "16"
+    },
+    {
+      "id": "hair-front-17",
+      "slotId": "hair_front",
+      "name": "髪前 17",
+      "assetId": "asset-hair-front-17",
+      "pairKey": "17"
+    },
+    {
+      "id": "hair-front-18",
+      "slotId": "hair_front",
+      "name": "髪前 18",
+      "assetId": "asset-hair-front-18",
+      "pairKey": "18"
+    },
+    {
+      "id": "hair-front-19",
+      "slotId": "hair_front",
+      "name": "髪前 19",
+      "assetId": "asset-hair-front-19",
+      "pairKey": "19"
+    },
+    {
+      "id": "hair-front-20",
+      "slotId": "hair_front",
+      "name": "髪前 20",
+      "assetId": "asset-hair-front-20",
+      "pairKey": "20"
+    },
+    {
+      "id": "hair-front-21",
+      "slotId": "hair_front",
+      "name": "髪前 21",
+      "assetId": "asset-hair-front-21",
+      "pairKey": "21"
+    },
+    {
+      "id": "hair-front-22",
+      "slotId": "hair_front",
+      "name": "髪前 22",
+      "assetId": "asset-hair-front-22",
+      "pairKey": "22"
+    },
+    {
+      "id": "hair-front-23",
+      "slotId": "hair_front",
+      "name": "髪前 23",
+      "assetId": "asset-hair-front-23",
+      "pairKey": "23"
+    },
+    {
+      "id": "hair-front-24",
+      "slotId": "hair_front",
+      "name": "髪前 24",
+      "assetId": "asset-hair-front-24",
+      "pairKey": "24"
+    },
+    {
+      "id": "hair-front-25",
+      "slotId": "hair_front",
+      "name": "髪前 25",
+      "assetId": "asset-hair-front-25",
+      "pairKey": "25"
+    },
+    {
+      "id": "hair-front-26",
+      "slotId": "hair_front",
+      "name": "髪前 26",
+      "assetId": "asset-hair-front-26",
+      "pairKey": "26"
+    },
+    {
+      "id": "hair-front-27",
+      "slotId": "hair_front",
+      "name": "髪前 27",
+      "assetId": "asset-hair-front-27",
+      "pairKey": "27"
+    },
+    {
+      "id": "hair-front-28",
+      "slotId": "hair_front",
+      "name": "髪前 28",
+      "assetId": "asset-hair-front-28",
+      "pairKey": "28"
+    },
+    {
+      "id": "hair-front-29",
+      "slotId": "hair_front",
+      "name": "髪前 29",
+      "assetId": "asset-hair-front-29",
+      "pairKey": "29"
+    },
+    {
+      "id": "hair-front-30",
+      "slotId": "hair_front",
+      "name": "髪前 30",
+      "assetId": "asset-hair-front-30",
+      "pairKey": "30"
+    },
+    {
+      "id": "hair-front-31",
+      "slotId": "hair_front",
+      "name": "髪前 31",
+      "assetId": "asset-hair-front-31",
+      "pairKey": "31"
+    },
+    {
+      "id": "hair-front-32",
+      "slotId": "hair_front",
+      "name": "髪前 32",
+      "assetId": "asset-hair-front-32",
+      "pairKey": "32"
+    },
+    {
+      "id": "hair-front-33",
+      "slotId": "hair_front",
+      "name": "髪前 33",
+      "assetId": "asset-hair-front-33",
+      "pairKey": "33"
+    },
+    {
+      "id": "hair-front-34",
+      "slotId": "hair_front",
+      "name": "髪前 34",
+      "assetId": "asset-hair-front-34",
+      "pairKey": "34"
+    },
+    {
+      "id": "hair-front-35",
+      "slotId": "hair_front",
+      "name": "髪前 35",
+      "assetId": "asset-hair-front-35",
+      "pairKey": "35"
+    },
+    {
+      "id": "hair-front-36",
+      "slotId": "hair_front",
+      "name": "髪前 36",
+      "assetId": "asset-hair-front-36",
+      "pairKey": "36"
+    },
+    {
+      "id": "hair-front-37",
+      "slotId": "hair_front",
+      "name": "髪前 37",
+      "assetId": "asset-hair-front-37",
+      "pairKey": "37"
+    },
+    {
+      "id": "hair-front-38",
+      "slotId": "hair_front",
+      "name": "髪前 38",
+      "assetId": "asset-hair-front-38",
+      "pairKey": "38"
+    },
+    {
+      "id": "hair-front-39",
+      "slotId": "hair_front",
+      "name": "髪前 39",
+      "assetId": "asset-hair-front-39",
+      "pairKey": "39"
+    },
+    {
+      "id": "hair-front-40",
+      "slotId": "hair_front",
+      "name": "髪前 40",
+      "assetId": "asset-hair-front-40",
+      "pairKey": "40"
+    },
+    {
+      "id": "mouth-01",
+      "slotId": "mouth",
+      "name": "口 1",
+      "assetId": "asset-mouth-01"
+    },
+    {
+      "id": "mouth-02",
+      "slotId": "mouth",
+      "name": "口 2",
+      "assetId": "asset-mouth-02"
+    },
+    {
+      "id": "mouth-03",
+      "slotId": "mouth",
+      "name": "口 3",
+      "assetId": "asset-mouth-03"
+    },
+    {
+      "id": "mouth-04",
+      "slotId": "mouth",
+      "name": "口 4",
+      "assetId": "asset-mouth-04"
+    },
+    {
+      "id": "mouth-05",
+      "slotId": "mouth",
+      "name": "口 5",
+      "assetId": "asset-mouth-05"
+    },
+    {
+      "id": "mouth-06",
+      "slotId": "mouth",
+      "name": "口 6",
+      "assetId": "asset-mouth-06"
+    },
+    {
+      "id": "mouth-07",
+      "slotId": "mouth",
+      "name": "口 7",
+      "assetId": "asset-mouth-07"
+    },
+    {
+      "id": "mouth-08",
+      "slotId": "mouth",
+      "name": "口 8",
+      "assetId": "asset-mouth-08"
+    },
+    {
+      "id": "mouth-09",
+      "slotId": "mouth",
+      "name": "口 9",
+      "assetId": "asset-mouth-09"
+    },
+    {
+      "id": "mouth-10",
+      "slotId": "mouth",
+      "name": "口 10",
+      "assetId": "asset-mouth-10"
+    },
+    {
+      "id": "mouth-11",
+      "slotId": "mouth",
+      "name": "口 11",
+      "assetId": "asset-mouth-11"
+    },
+    {
+      "id": "mouth-12",
+      "slotId": "mouth",
+      "name": "口 12",
+      "assetId": "asset-mouth-12"
+    },
+    {
+      "id": "mouth-13",
+      "slotId": "mouth",
+      "name": "口 13",
+      "assetId": "asset-mouth-13"
+    },
+    {
+      "id": "mouth-14",
+      "slotId": "mouth",
+      "name": "口 14",
+      "assetId": "asset-mouth-14"
+    },
+    {
+      "id": "mouth-15",
+      "slotId": "mouth",
+      "name": "口 15",
+      "assetId": "asset-mouth-15"
+    },
+    {
+      "id": "mouth-16",
+      "slotId": "mouth",
+      "name": "口 16",
+      "assetId": "asset-mouth-16"
+    },
+    {
+      "id": "mouth-17",
+      "slotId": "mouth",
+      "name": "口 17",
+      "assetId": "asset-mouth-17"
+    },
+    {
+      "id": "mouth-18",
+      "slotId": "mouth",
+      "name": "口 18",
+      "assetId": "asset-mouth-18"
+    },
+    {
+      "id": "mouth-19",
+      "slotId": "mouth",
+      "name": "口 19",
+      "assetId": "asset-mouth-19"
+    },
+    {
+      "id": "mouth-20",
+      "slotId": "mouth",
+      "name": "口 20",
+      "assetId": "asset-mouth-20"
+    },
+    {
+      "id": "mouth-21",
+      "slotId": "mouth",
+      "name": "口 21",
+      "assetId": "asset-mouth-21"
+    },
+    {
+      "id": "mouth-22",
+      "slotId": "mouth",
+      "name": "口 22",
+      "assetId": "asset-mouth-22"
+    },
+    {
+      "id": "mouth-23",
+      "slotId": "mouth",
+      "name": "口 23",
+      "assetId": "asset-mouth-23"
+    },
+    {
+      "id": "mouth-24",
+      "slotId": "mouth",
+      "name": "口 24",
+      "assetId": "asset-mouth-24"
+    },
+    {
+      "id": "mouth-25",
+      "slotId": "mouth",
+      "name": "口 25",
+      "assetId": "asset-mouth-25"
+    },
+    {
+      "id": "eye-left-01",
+      "slotId": "eye_left",
+      "name": "左目 1",
+      "assetId": "asset-eye-left-01",
+      "pairKey": "01"
+    },
+    {
+      "id": "eye-left-02",
+      "slotId": "eye_left",
+      "name": "左目 2",
+      "assetId": "asset-eye-left-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "eye-left-03",
+      "slotId": "eye_left",
+      "name": "左目 3",
+      "assetId": "asset-eye-left-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "eye-left-04",
+      "slotId": "eye_left",
+      "name": "左目 4",
+      "assetId": "asset-eye-left-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "eye-left-05",
+      "slotId": "eye_left",
+      "name": "左目 5",
+      "assetId": "asset-eye-left-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "eye-left-06",
+      "slotId": "eye_left",
+      "name": "左目 6",
+      "assetId": "asset-eye-left-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "eye-left-07",
+      "slotId": "eye_left",
+      "name": "左目 7",
+      "assetId": "asset-eye-left-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "eye-left-08",
+      "slotId": "eye_left",
+      "name": "左目 8",
+      "assetId": "asset-eye-left-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "eye-left-09",
+      "slotId": "eye_left",
+      "name": "左目 9",
+      "assetId": "asset-eye-left-09",
+      "pairKey": "09"
+    },
+    {
+      "id": "eye-left-10",
+      "slotId": "eye_left",
+      "name": "左目 10",
+      "assetId": "asset-eye-left-10",
+      "pairKey": "10"
+    },
+    {
+      "id": "eye-left-11",
+      "slotId": "eye_left",
+      "name": "左目 11",
+      "assetId": "asset-eye-left-11",
+      "pairKey": "11"
+    },
+    {
+      "id": "eye-left-12",
+      "slotId": "eye_left",
+      "name": "左目 12",
+      "assetId": "asset-eye-left-12",
+      "pairKey": "12"
+    },
+    {
+      "id": "eye-left-13",
+      "slotId": "eye_left",
+      "name": "左目 13",
+      "assetId": "asset-eye-left-13",
+      "pairKey": "13"
+    },
+    {
+      "id": "eye-left-14",
+      "slotId": "eye_left",
+      "name": "左目 14",
+      "assetId": "asset-eye-left-14",
+      "pairKey": "14"
+    },
+    {
+      "id": "eye-left-16",
+      "slotId": "eye_left",
+      "name": "左目 16",
+      "assetId": "asset-eye-left-16",
+      "pairKey": "16"
+    },
+    {
+      "id": "eye-left-17",
+      "slotId": "eye_left",
+      "name": "左目 17",
+      "assetId": "asset-eye-left-17",
+      "pairKey": "17"
+    },
+    {
+      "id": "eye-left-18",
+      "slotId": "eye_left",
+      "name": "左目 18",
+      "assetId": "asset-eye-left-18",
+      "pairKey": "18"
+    },
+    {
+      "id": "eye-left-19",
+      "slotId": "eye_left",
+      "name": "左目 19",
+      "assetId": "asset-eye-left-19",
+      "pairKey": "19"
+    },
+    {
+      "id": "eye-left-20",
+      "slotId": "eye_left",
+      "name": "左目 20",
+      "assetId": "asset-eye-left-20",
+      "pairKey": "20"
+    },
+    {
+      "id": "eye-left-21",
+      "slotId": "eye_left",
+      "name": "左目 21",
+      "assetId": "asset-eye-left-21",
+      "pairKey": "21"
+    },
+    {
+      "id": "eye-left-22",
+      "slotId": "eye_left",
+      "name": "左目 22",
+      "assetId": "asset-eye-left-22",
+      "pairKey": "22"
+    },
+    {
+      "id": "eye-left-23",
+      "slotId": "eye_left",
+      "name": "左目 23",
+      "assetId": "asset-eye-left-23",
+      "pairKey": "23"
+    },
+    {
+      "id": "eye-left-24",
+      "slotId": "eye_left",
+      "name": "左目 24",
+      "assetId": "asset-eye-left-24",
+      "pairKey": "24"
+    },
+    {
+      "id": "eye-left-25",
+      "slotId": "eye_left",
+      "name": "左目 25",
+      "assetId": "asset-eye-left-25",
+      "pairKey": "25"
+    },
+    {
+      "id": "eye-left-26",
+      "slotId": "eye_left",
+      "name": "左目 26",
+      "assetId": "asset-eye-left-26",
+      "pairKey": "26"
+    },
+    {
+      "id": "eye-left-27",
+      "slotId": "eye_left",
+      "name": "左目 27",
+      "assetId": "asset-eye-left-27",
+      "pairKey": "27"
+    },
+    {
+      "id": "eye-left-28",
+      "slotId": "eye_left",
+      "name": "左目 28",
+      "assetId": "asset-eye-left-28",
+      "pairKey": "28"
+    },
+    {
+      "id": "eye-left-29",
+      "slotId": "eye_left",
+      "name": "左目 29",
+      "assetId": "asset-eye-left-29",
+      "pairKey": "29"
+    },
+    {
+      "id": "eye-left-30",
+      "slotId": "eye_left",
+      "name": "左目 30",
+      "assetId": "asset-eye-left-30",
+      "pairKey": "30"
+    },
+    {
+      "id": "eye-left-31",
+      "slotId": "eye_left",
+      "name": "左目 31",
+      "assetId": "asset-eye-left-31",
+      "pairKey": "31"
+    },
+    {
+      "id": "eye-left-32",
+      "slotId": "eye_left",
+      "name": "左目 32",
+      "assetId": "asset-eye-left-32",
+      "pairKey": "32"
+    },
+    {
+      "id": "eye-left-33",
+      "slotId": "eye_left",
+      "name": "左目 33",
+      "assetId": "asset-eye-left-33",
+      "pairKey": "33"
+    },
+    {
+      "id": "eye-left-34",
+      "slotId": "eye_left",
+      "name": "左目 34",
+      "assetId": "asset-eye-left-34",
+      "pairKey": "34"
+    },
+    {
+      "id": "eye-right-01",
+      "slotId": "eye_right",
+      "name": "右目 1",
+      "assetId": "asset-eye-right-01",
+      "pairKey": "01"
+    },
+    {
+      "id": "eye-right-02",
+      "slotId": "eye_right",
+      "name": "右目 2",
+      "assetId": "asset-eye-right-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "eye-right-03",
+      "slotId": "eye_right",
+      "name": "右目 3",
+      "assetId": "asset-eye-right-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "eye-right-04",
+      "slotId": "eye_right",
+      "name": "右目 4",
+      "assetId": "asset-eye-right-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "eye-right-05",
+      "slotId": "eye_right",
+      "name": "右目 5",
+      "assetId": "asset-eye-right-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "eye-right-06",
+      "slotId": "eye_right",
+      "name": "右目 6",
+      "assetId": "asset-eye-right-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "eye-right-07",
+      "slotId": "eye_right",
+      "name": "右目 7",
+      "assetId": "asset-eye-right-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "eye-right-08",
+      "slotId": "eye_right",
+      "name": "右目 8",
+      "assetId": "asset-eye-right-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "eye-right-09",
+      "slotId": "eye_right",
+      "name": "右目 9",
+      "assetId": "asset-eye-right-09",
+      "pairKey": "09"
+    },
+    {
+      "id": "eye-right-10",
+      "slotId": "eye_right",
+      "name": "右目 10",
+      "assetId": "asset-eye-right-10",
+      "pairKey": "10"
+    },
+    {
+      "id": "eye-right-11",
+      "slotId": "eye_right",
+      "name": "右目 11",
+      "assetId": "asset-eye-right-11",
+      "pairKey": "11"
+    },
+    {
+      "id": "eye-right-12",
+      "slotId": "eye_right",
+      "name": "右目 12",
+      "assetId": "asset-eye-right-12",
+      "pairKey": "12"
+    },
+    {
+      "id": "eye-right-13",
+      "slotId": "eye_right",
+      "name": "右目 13",
+      "assetId": "asset-eye-right-13",
+      "pairKey": "13"
+    },
+    {
+      "id": "eye-right-14",
+      "slotId": "eye_right",
+      "name": "右目 14",
+      "assetId": "asset-eye-right-14",
+      "pairKey": "14"
+    },
+    {
+      "id": "eye-right-16",
+      "slotId": "eye_right",
+      "name": "右目 16",
+      "assetId": "asset-eye-right-16",
+      "pairKey": "16"
+    },
+    {
+      "id": "eye-right-17",
+      "slotId": "eye_right",
+      "name": "右目 17",
+      "assetId": "asset-eye-right-17",
+      "pairKey": "17"
+    },
+    {
+      "id": "eye-right-18",
+      "slotId": "eye_right",
+      "name": "右目 18",
+      "assetId": "asset-eye-right-18",
+      "pairKey": "18"
+    },
+    {
+      "id": "eye-right-19",
+      "slotId": "eye_right",
+      "name": "右目 19",
+      "assetId": "asset-eye-right-19",
+      "pairKey": "19"
+    },
+    {
+      "id": "eye-right-20",
+      "slotId": "eye_right",
+      "name": "右目 20",
+      "assetId": "asset-eye-right-20",
+      "pairKey": "20"
+    },
+    {
+      "id": "eye-right-21",
+      "slotId": "eye_right",
+      "name": "右目 21",
+      "assetId": "asset-eye-right-21",
+      "pairKey": "21"
+    },
+    {
+      "id": "eye-right-22",
+      "slotId": "eye_right",
+      "name": "右目 22",
+      "assetId": "asset-eye-right-22",
+      "pairKey": "22"
+    },
+    {
+      "id": "eye-right-23",
+      "slotId": "eye_right",
+      "name": "右目 23",
+      "assetId": "asset-eye-right-23",
+      "pairKey": "23"
+    },
+    {
+      "id": "eye-right-24",
+      "slotId": "eye_right",
+      "name": "右目 24",
+      "assetId": "asset-eye-right-24",
+      "pairKey": "24"
+    },
+    {
+      "id": "eye-right-25",
+      "slotId": "eye_right",
+      "name": "右目 25",
+      "assetId": "asset-eye-right-25",
+      "pairKey": "25"
+    },
+    {
+      "id": "eye-right-26",
+      "slotId": "eye_right",
+      "name": "右目 26",
+      "assetId": "asset-eye-right-26",
+      "pairKey": "26"
+    },
+    {
+      "id": "eye-right-27",
+      "slotId": "eye_right",
+      "name": "右目 27",
+      "assetId": "asset-eye-right-27",
+      "pairKey": "27"
+    },
+    {
+      "id": "eye-right-28",
+      "slotId": "eye_right",
+      "name": "右目 28",
+      "assetId": "asset-eye-right-28",
+      "pairKey": "28"
+    },
+    {
+      "id": "eye-right-29",
+      "slotId": "eye_right",
+      "name": "右目 29",
+      "assetId": "asset-eye-right-29",
+      "pairKey": "29"
+    },
+    {
+      "id": "eye-right-30",
+      "slotId": "eye_right",
+      "name": "右目 30",
+      "assetId": "asset-eye-right-30",
+      "pairKey": "30"
+    },
+    {
+      "id": "eye-right-31",
+      "slotId": "eye_right",
+      "name": "右目 31",
+      "assetId": "asset-eye-right-31",
+      "pairKey": "31"
+    },
+    {
+      "id": "eye-right-32",
+      "slotId": "eye_right",
+      "name": "右目 32",
+      "assetId": "asset-eye-right-32",
+      "pairKey": "32"
+    },
+    {
+      "id": "eye-right-33",
+      "slotId": "eye_right",
+      "name": "右目 33",
+      "assetId": "asset-eye-right-33",
+      "pairKey": "33"
+    },
+    {
+      "id": "eye-right-34",
+      "slotId": "eye_right",
+      "name": "右目 34",
+      "assetId": "asset-eye-right-34",
+      "pairKey": "34"
+    },
+    {
+      "id": "eyebrow-left-01",
+      "slotId": "eyebrow_left",
+      "name": "左眉 1",
+      "assetId": "asset-eyebrow-left-01",
+      "pairKey": "01"
+    },
+    {
+      "id": "eyebrow-left-02",
+      "slotId": "eyebrow_left",
+      "name": "左眉 2",
+      "assetId": "asset-eyebrow-left-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "eyebrow-left-03",
+      "slotId": "eyebrow_left",
+      "name": "左眉 3",
+      "assetId": "asset-eyebrow-left-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "eyebrow-left-04",
+      "slotId": "eyebrow_left",
+      "name": "左眉 4",
+      "assetId": "asset-eyebrow-left-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "eyebrow-left-05",
+      "slotId": "eyebrow_left",
+      "name": "左眉 5",
+      "assetId": "asset-eyebrow-left-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "eyebrow-left-06",
+      "slotId": "eyebrow_left",
+      "name": "左眉 6",
+      "assetId": "asset-eyebrow-left-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "eyebrow-left-07",
+      "slotId": "eyebrow_left",
+      "name": "左眉 7",
+      "assetId": "asset-eyebrow-left-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "eyebrow-left-08",
+      "slotId": "eyebrow_left",
+      "name": "左眉 8",
+      "assetId": "asset-eyebrow-left-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "eyebrow-left-09",
+      "slotId": "eyebrow_left",
+      "name": "左眉 9",
+      "assetId": "asset-eyebrow-left-09",
+      "pairKey": "09"
+    },
+    {
+      "id": "eyebrow-left-10",
+      "slotId": "eyebrow_left",
+      "name": "左眉 10",
+      "assetId": "asset-eyebrow-left-10",
+      "pairKey": "10"
+    },
+    {
+      "id": "eyebrow-left-11",
+      "slotId": "eyebrow_left",
+      "name": "左眉 11",
+      "assetId": "asset-eyebrow-left-11",
+      "pairKey": "11"
+    },
+    {
+      "id": "eyebrow-left-12",
+      "slotId": "eyebrow_left",
+      "name": "左眉 12",
+      "assetId": "asset-eyebrow-left-12",
+      "pairKey": "12"
+    },
+    {
+      "id": "eyebrow-left-13",
+      "slotId": "eyebrow_left",
+      "name": "左眉 13",
+      "assetId": "asset-eyebrow-left-13",
+      "pairKey": "13"
+    },
+    {
+      "id": "eyebrow-left-14",
+      "slotId": "eyebrow_left",
+      "name": "左眉 14",
+      "assetId": "asset-eyebrow-left-14",
+      "pairKey": "14"
+    },
+    {
+      "id": "eyebrow-left-15",
+      "slotId": "eyebrow_left",
+      "name": "左眉 15",
+      "assetId": "asset-eyebrow-left-15",
+      "pairKey": "15"
+    },
+    {
+      "id": "eyebrow-left-16",
+      "slotId": "eyebrow_left",
+      "name": "左眉 16",
+      "assetId": "asset-eyebrow-left-16",
+      "pairKey": "16"
+    },
+    {
+      "id": "eyebrow-left-17",
+      "slotId": "eyebrow_left",
+      "name": "左眉 17",
+      "assetId": "asset-eyebrow-left-17",
+      "pairKey": "17"
+    },
+    {
+      "id": "eyebrow-left-18",
+      "slotId": "eyebrow_left",
+      "name": "左眉 18",
+      "assetId": "asset-eyebrow-left-18",
+      "pairKey": "18"
+    },
+    {
+      "id": "eyebrow-left-19",
+      "slotId": "eyebrow_left",
+      "name": "左眉 19",
+      "assetId": "asset-eyebrow-left-19",
+      "pairKey": "19"
+    },
+    {
+      "id": "eyebrow-left-20",
+      "slotId": "eyebrow_left",
+      "name": "左眉 20",
+      "assetId": "asset-eyebrow-left-20",
+      "pairKey": "20"
+    },
+    {
+      "id": "eyebrow-left-21",
+      "slotId": "eyebrow_left",
+      "name": "左眉 21",
+      "assetId": "asset-eyebrow-left-21",
+      "pairKey": "21"
+    },
+    {
+      "id": "eyebrow-right-01",
+      "slotId": "eyebrow_right",
+      "name": "右眉 1",
+      "assetId": "asset-eyebrow-right-01",
+      "pairKey": "01"
+    },
+    {
+      "id": "eyebrow-right-02",
+      "slotId": "eyebrow_right",
+      "name": "右眉 2",
+      "assetId": "asset-eyebrow-right-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "eyebrow-right-03",
+      "slotId": "eyebrow_right",
+      "name": "右眉 3",
+      "assetId": "asset-eyebrow-right-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "eyebrow-right-04",
+      "slotId": "eyebrow_right",
+      "name": "右眉 4",
+      "assetId": "asset-eyebrow-right-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "eyebrow-right-05",
+      "slotId": "eyebrow_right",
+      "name": "右眉 5",
+      "assetId": "asset-eyebrow-right-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "eyebrow-right-06",
+      "slotId": "eyebrow_right",
+      "name": "右眉 6",
+      "assetId": "asset-eyebrow-right-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "eyebrow-right-07",
+      "slotId": "eyebrow_right",
+      "name": "右眉 7",
+      "assetId": "asset-eyebrow-right-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "eyebrow-right-08",
+      "slotId": "eyebrow_right",
+      "name": "右眉 8",
+      "assetId": "asset-eyebrow-right-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "eyebrow-right-09",
+      "slotId": "eyebrow_right",
+      "name": "右眉 9",
+      "assetId": "asset-eyebrow-right-09",
+      "pairKey": "09"
+    },
+    {
+      "id": "eyebrow-right-10",
+      "slotId": "eyebrow_right",
+      "name": "右眉 10",
+      "assetId": "asset-eyebrow-right-10",
+      "pairKey": "10"
+    },
+    {
+      "id": "eyebrow-right-11",
+      "slotId": "eyebrow_right",
+      "name": "右眉 11",
+      "assetId": "asset-eyebrow-right-11",
+      "pairKey": "11"
+    },
+    {
+      "id": "eyebrow-right-12",
+      "slotId": "eyebrow_right",
+      "name": "右眉 12",
+      "assetId": "asset-eyebrow-right-12",
+      "pairKey": "12"
+    },
+    {
+      "id": "eyebrow-right-13",
+      "slotId": "eyebrow_right",
+      "name": "右眉 13",
+      "assetId": "asset-eyebrow-right-13",
+      "pairKey": "13"
+    },
+    {
+      "id": "eyebrow-right-14",
+      "slotId": "eyebrow_right",
+      "name": "右眉 14",
+      "assetId": "asset-eyebrow-right-14",
+      "pairKey": "14"
+    },
+    {
+      "id": "eyebrow-right-15",
+      "slotId": "eyebrow_right",
+      "name": "右眉 15",
+      "assetId": "asset-eyebrow-right-15",
+      "pairKey": "15"
+    },
+    {
+      "id": "eyebrow-right-16",
+      "slotId": "eyebrow_right",
+      "name": "右眉 16",
+      "assetId": "asset-eyebrow-right-16",
+      "pairKey": "16"
+    },
+    {
+      "id": "eyebrow-right-17",
+      "slotId": "eyebrow_right",
+      "name": "右眉 17",
+      "assetId": "asset-eyebrow-right-17",
+      "pairKey": "17"
+    },
+    {
+      "id": "eyebrow-right-18",
+      "slotId": "eyebrow_right",
+      "name": "右眉 18",
+      "assetId": "asset-eyebrow-right-18",
+      "pairKey": "18"
+    },
+    {
+      "id": "eyebrow-right-19",
+      "slotId": "eyebrow_right",
+      "name": "右眉 19",
+      "assetId": "asset-eyebrow-right-19",
+      "pairKey": "19"
+    },
+    {
+      "id": "eyebrow-right-20",
+      "slotId": "eyebrow_right",
+      "name": "右眉 20",
+      "assetId": "asset-eyebrow-right-20",
+      "pairKey": "20"
+    },
+    {
+      "id": "eyebrow-right-21",
+      "slotId": "eyebrow_right",
+      "name": "右眉 21",
+      "assetId": "asset-eyebrow-right-21",
+      "pairKey": "21"
+    },
+    {
+      "id": "glasses-01",
+      "slotId": "glasses",
+      "name": "メガネ 1",
+      "assetId": "asset-glasses-01"
+    },
+    {
+      "id": "glasses-02",
+      "slotId": "glasses",
+      "name": "メガネ 2",
+      "assetId": "asset-glasses-02"
+    },
+    {
+      "id": "glasses-03",
+      "slotId": "glasses",
+      "name": "メガネ 3",
+      "assetId": "asset-glasses-03"
+    },
+    {
+      "id": "glasses-04",
+      "slotId": "glasses",
+      "name": "メガネ 4",
+      "assetId": "asset-glasses-04"
+    },
+    {
+      "id": "nose-01",
+      "slotId": "nose",
+      "name": "鼻 1",
+      "assetId": "asset-nose-01"
+    },
+    {
+      "id": "nose-02",
+      "slotId": "nose",
+      "name": "鼻 2",
+      "assetId": "asset-nose-02"
+    },
+    {
+      "id": "nose-03",
+      "slotId": "nose",
+      "name": "鼻 3",
+      "assetId": "asset-nose-03"
+    },
+    {
+      "id": "nose-04",
+      "slotId": "nose",
+      "name": "鼻 4",
+      "assetId": "asset-nose-04"
+    },
+    {
+      "id": "nose-05",
+      "slotId": "nose",
+      "name": "鼻 5",
+      "assetId": "asset-nose-05"
+    },
+    {
+      "id": "nose-06",
+      "slotId": "nose",
+      "name": "鼻 6",
+      "assetId": "asset-nose-06"
+    },
+    {
+      "id": "nose-07",
+      "slotId": "nose",
+      "name": "鼻 7",
+      "assetId": "asset-nose-07"
+    },
+    {
+      "id": "nose-08",
+      "slotId": "nose",
+      "name": "鼻 8",
+      "assetId": "asset-nose-08"
+    },
+    {
+      "id": "nose-09",
+      "slotId": "nose",
+      "name": "鼻 9",
+      "assetId": "asset-nose-09"
+    },
+    {
+      "id": "nose-10",
+      "slotId": "nose",
+      "name": "鼻 10",
+      "assetId": "asset-nose-10"
+    },
+    {
+      "id": "nose-11",
+      "slotId": "nose",
+      "name": "鼻 11",
+      "assetId": "asset-nose-11"
+    },
+    {
+      "id": "nose-12",
+      "slotId": "nose",
+      "name": "鼻 12",
+      "assetId": "asset-nose-12"
+    },
+    {
+      "id": "nose-13",
+      "slotId": "nose",
+      "name": "鼻 13",
+      "assetId": "asset-nose-13"
+    },
+    {
+      "id": "nose-14",
+      "slotId": "nose",
+      "name": "鼻 14",
+      "assetId": "asset-nose-14"
+    },
+    {
+      "id": "nose-15",
+      "slotId": "nose",
+      "name": "鼻 15",
+      "assetId": "asset-nose-15"
+    },
+    {
+      "id": "nose-16",
+      "slotId": "nose",
+      "name": "鼻 16",
+      "assetId": "asset-nose-16"
+    },
+    {
+      "id": "nose-17",
+      "slotId": "nose",
+      "name": "鼻 17",
+      "assetId": "asset-nose-17"
+    },
+    {
+      "id": "nose-18",
+      "slotId": "nose",
+      "name": "鼻 18",
+      "assetId": "asset-nose-18"
+    },
+    {
+      "id": "nose-19",
+      "slotId": "nose",
+      "name": "鼻 19",
+      "assetId": "asset-nose-19"
+    },
+    {
+      "id": "accessory-back-04",
+      "slotId": "accessory_back",
+      "name": "アクセサリ (背面) 4",
+      "assetId": "asset-accessory-back-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "accessory-back-05",
+      "slotId": "accessory_back",
+      "name": "アクセサリ (背面) 5",
+      "assetId": "asset-accessory-back-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "accessory-back-06",
+      "slotId": "accessory_back",
+      "name": "アクセサリ (背面) 6",
+      "assetId": "asset-accessory-back-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "accessory-front-01",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 1",
+      "assetId": "asset-accessory-front-01",
+      "pairKey": "01"
+    },
+    {
+      "id": "accessory-front-02",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 2",
+      "assetId": "asset-accessory-front-02",
+      "pairKey": "02"
+    },
+    {
+      "id": "accessory-front-03",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 3",
+      "assetId": "asset-accessory-front-03",
+      "pairKey": "03"
+    },
+    {
+      "id": "accessory-front-04",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 4",
+      "assetId": "asset-accessory-front-04",
+      "pairKey": "04"
+    },
+    {
+      "id": "accessory-front-05",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 5",
+      "assetId": "asset-accessory-front-05",
+      "pairKey": "05"
+    },
+    {
+      "id": "accessory-front-06",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 6",
+      "assetId": "asset-accessory-front-06",
+      "pairKey": "06"
+    },
+    {
+      "id": "accessory-front-07",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 7",
+      "assetId": "asset-accessory-front-07",
+      "pairKey": "07"
+    },
+    {
+      "id": "accessory-front-08",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 8",
+      "assetId": "asset-accessory-front-08",
+      "pairKey": "08"
+    },
+    {
+      "id": "accessory-front-09",
+      "slotId": "accessory_front",
+      "name": "アクセサリ (前面) 9",
+      "assetId": "asset-accessory-front-09",
+      "pairKey": "09"
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset-face-01",
+      "kind": "svg",
+      "src": "face/face-01.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-face-02",
+      "kind": "svg",
+      "src": "face/face-02.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-face-03",
+      "kind": "svg",
+      "src": "face/face-03.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-face-04",
+      "kind": "svg",
+      "src": "face/face-04.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-face-05",
+      "kind": "svg",
+      "src": "face/face-05.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-02",
+      "kind": "svg",
+      "src": "hair_back/hair-back-02.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-03",
+      "kind": "svg",
+      "src": "hair_back/hair-back-03.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-04",
+      "kind": "svg",
+      "src": "hair_back/hair-back-04.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-05",
+      "kind": "svg",
+      "src": "hair_back/hair-back-05.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-07",
+      "kind": "svg",
+      "src": "hair_back/hair-back-07.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-08",
+      "kind": "svg",
+      "src": "hair_back/hair-back-08.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-12",
+      "kind": "svg",
+      "src": "hair_back/hair-back-12.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-14",
+      "kind": "svg",
+      "src": "hair_back/hair-back-14.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-15",
+      "kind": "svg",
+      "src": "hair_back/hair-back-15.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-16",
+      "kind": "svg",
+      "src": "hair_back/hair-back-16.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-17",
+      "kind": "svg",
+      "src": "hair_back/hair-back-17.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-18",
+      "kind": "svg",
+      "src": "hair_back/hair-back-18.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-19",
+      "kind": "svg",
+      "src": "hair_back/hair-back-19.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-20",
+      "kind": "svg",
+      "src": "hair_back/hair-back-20.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-21",
+      "kind": "svg",
+      "src": "hair_back/hair-back-21.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-24",
+      "kind": "svg",
+      "src": "hair_back/hair-back-24.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-28",
+      "kind": "svg",
+      "src": "hair_back/hair-back-28.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-29",
+      "kind": "svg",
+      "src": "hair_back/hair-back-29.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-31",
+      "kind": "svg",
+      "src": "hair_back/hair-back-31.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-32",
+      "kind": "svg",
+      "src": "hair_back/hair-back-32.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-33",
+      "kind": "svg",
+      "src": "hair_back/hair-back-33.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-34",
+      "kind": "svg",
+      "src": "hair_back/hair-back-34.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-35",
+      "kind": "svg",
+      "src": "hair_back/hair-back-35.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-36",
+      "kind": "svg",
+      "src": "hair_back/hair-back-36.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-38",
+      "kind": "svg",
+      "src": "hair_back/hair-back-38.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-back-39",
+      "kind": "svg",
+      "src": "hair_back/hair-back-39.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-01",
+      "kind": "svg",
+      "src": "hair_front/hair-front-01.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-02",
+      "kind": "svg",
+      "src": "hair_front/hair-front-02.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-03",
+      "kind": "svg",
+      "src": "hair_front/hair-front-03.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-04",
+      "kind": "svg",
+      "src": "hair_front/hair-front-04.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-05",
+      "kind": "svg",
+      "src": "hair_front/hair-front-05.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-06",
+      "kind": "svg",
+      "src": "hair_front/hair-front-06.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-07",
+      "kind": "svg",
+      "src": "hair_front/hair-front-07.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-08",
+      "kind": "svg",
+      "src": "hair_front/hair-front-08.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-09",
+      "kind": "svg",
+      "src": "hair_front/hair-front-09.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-10",
+      "kind": "svg",
+      "src": "hair_front/hair-front-10.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-11",
+      "kind": "svg",
+      "src": "hair_front/hair-front-11.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-12",
+      "kind": "svg",
+      "src": "hair_front/hair-front-12.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-13",
+      "kind": "svg",
+      "src": "hair_front/hair-front-13.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-14",
+      "kind": "svg",
+      "src": "hair_front/hair-front-14.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-15",
+      "kind": "svg",
+      "src": "hair_front/hair-front-15.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-16",
+      "kind": "svg",
+      "src": "hair_front/hair-front-16.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-17",
+      "kind": "svg",
+      "src": "hair_front/hair-front-17.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-18",
+      "kind": "svg",
+      "src": "hair_front/hair-front-18.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-19",
+      "kind": "svg",
+      "src": "hair_front/hair-front-19.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-20",
+      "kind": "svg",
+      "src": "hair_front/hair-front-20.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-21",
+      "kind": "svg",
+      "src": "hair_front/hair-front-21.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-22",
+      "kind": "svg",
+      "src": "hair_front/hair-front-22.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-23",
+      "kind": "svg",
+      "src": "hair_front/hair-front-23.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-24",
+      "kind": "svg",
+      "src": "hair_front/hair-front-24.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-25",
+      "kind": "svg",
+      "src": "hair_front/hair-front-25.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-26",
+      "kind": "svg",
+      "src": "hair_front/hair-front-26.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-27",
+      "kind": "svg",
+      "src": "hair_front/hair-front-27.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-28",
+      "kind": "svg",
+      "src": "hair_front/hair-front-28.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-29",
+      "kind": "svg",
+      "src": "hair_front/hair-front-29.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-30",
+      "kind": "svg",
+      "src": "hair_front/hair-front-30.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-31",
+      "kind": "svg",
+      "src": "hair_front/hair-front-31.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-32",
+      "kind": "svg",
+      "src": "hair_front/hair-front-32.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-33",
+      "kind": "svg",
+      "src": "hair_front/hair-front-33.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-34",
+      "kind": "svg",
+      "src": "hair_front/hair-front-34.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-35",
+      "kind": "svg",
+      "src": "hair_front/hair-front-35.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-36",
+      "kind": "svg",
+      "src": "hair_front/hair-front-36.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-37",
+      "kind": "svg",
+      "src": "hair_front/hair-front-37.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-38",
+      "kind": "svg",
+      "src": "hair_front/hair-front-38.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-39",
+      "kind": "svg",
+      "src": "hair_front/hair-front-39.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-hair-front-40",
+      "kind": "svg",
+      "src": "hair_front/hair-front-40.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        },
+        {
+          "target": "#FCD0D0",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-mouth-01",
+      "kind": "svg",
+      "src": "mouth/mouth-01.svg"
+    },
+    {
+      "id": "asset-mouth-02",
+      "kind": "svg",
+      "src": "mouth/mouth-02.svg"
+    },
+    {
+      "id": "asset-mouth-03",
+      "kind": "svg",
+      "src": "mouth/mouth-03.svg"
+    },
+    {
+      "id": "asset-mouth-04",
+      "kind": "svg",
+      "src": "mouth/mouth-04.svg"
+    },
+    {
+      "id": "asset-mouth-05",
+      "kind": "svg",
+      "src": "mouth/mouth-05.svg"
+    },
+    {
+      "id": "asset-mouth-06",
+      "kind": "svg",
+      "src": "mouth/mouth-06.svg"
+    },
+    {
+      "id": "asset-mouth-07",
+      "kind": "svg",
+      "src": "mouth/mouth-07.svg"
+    },
+    {
+      "id": "asset-mouth-08",
+      "kind": "svg",
+      "src": "mouth/mouth-08.svg"
+    },
+    {
+      "id": "asset-mouth-09",
+      "kind": "svg",
+      "src": "mouth/mouth-09.svg"
+    },
+    {
+      "id": "asset-mouth-10",
+      "kind": "svg",
+      "src": "mouth/mouth-10.svg"
+    },
+    {
+      "id": "asset-mouth-11",
+      "kind": "svg",
+      "src": "mouth/mouth-11.svg"
+    },
+    {
+      "id": "asset-mouth-12",
+      "kind": "svg",
+      "src": "mouth/mouth-12.svg"
+    },
+    {
+      "id": "asset-mouth-13",
+      "kind": "svg",
+      "src": "mouth/mouth-13.svg"
+    },
+    {
+      "id": "asset-mouth-14",
+      "kind": "svg",
+      "src": "mouth/mouth-14.svg"
+    },
+    {
+      "id": "asset-mouth-15",
+      "kind": "svg",
+      "src": "mouth/mouth-15.svg"
+    },
+    {
+      "id": "asset-mouth-16",
+      "kind": "svg",
+      "src": "mouth/mouth-16.svg"
+    },
+    {
+      "id": "asset-mouth-17",
+      "kind": "svg",
+      "src": "mouth/mouth-17.svg"
+    },
+    {
+      "id": "asset-mouth-18",
+      "kind": "svg",
+      "src": "mouth/mouth-18.svg"
+    },
+    {
+      "id": "asset-mouth-19",
+      "kind": "svg",
+      "src": "mouth/mouth-19.svg"
+    },
+    {
+      "id": "asset-mouth-20",
+      "kind": "svg",
+      "src": "mouth/mouth-20.svg"
+    },
+    {
+      "id": "asset-mouth-21",
+      "kind": "svg",
+      "src": "mouth/mouth-21.svg"
+    },
+    {
+      "id": "asset-mouth-22",
+      "kind": "svg",
+      "src": "mouth/mouth-22.svg"
+    },
+    {
+      "id": "asset-mouth-23",
+      "kind": "svg",
+      "src": "mouth/mouth-23.svg"
+    },
+    {
+      "id": "asset-mouth-24",
+      "kind": "svg",
+      "src": "mouth/mouth-24.svg"
+    },
+    {
+      "id": "asset-mouth-25",
+      "kind": "svg",
+      "src": "mouth/mouth-25.svg"
+    },
+    {
+      "id": "asset-eye-left-01",
+      "kind": "svg",
+      "src": "eye_left/eye-left-01.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-02",
+      "kind": "svg",
+      "src": "eye_left/eye-left-02.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-03",
+      "kind": "svg",
+      "src": "eye_left/eye-left-03.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-04",
+      "kind": "svg",
+      "src": "eye_left/eye-left-04.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-05",
+      "kind": "svg",
+      "src": "eye_left/eye-left-05.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-06",
+      "kind": "svg",
+      "src": "eye_left/eye-left-06.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-07",
+      "kind": "svg",
+      "src": "eye_left/eye-left-07.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-08",
+      "kind": "svg",
+      "src": "eye_left/eye-left-08.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-09",
+      "kind": "svg",
+      "src": "eye_left/eye-left-09.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-10",
+      "kind": "svg",
+      "src": "eye_left/eye-left-10.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-11",
+      "kind": "svg",
+      "src": "eye_left/eye-left-11.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-12",
+      "kind": "svg",
+      "src": "eye_left/eye-left-12.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-13",
+      "kind": "svg",
+      "src": "eye_left/eye-left-13.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-14",
+      "kind": "svg",
+      "src": "eye_left/eye-left-14.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-16",
+      "kind": "svg",
+      "src": "eye_left/eye-left-16.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-17",
+      "kind": "svg",
+      "src": "eye_left/eye-left-17.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-18",
+      "kind": "svg",
+      "src": "eye_left/eye-left-18.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-19",
+      "kind": "svg",
+      "src": "eye_left/eye-left-19.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-20",
+      "kind": "svg",
+      "src": "eye_left/eye-left-20.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-21",
+      "kind": "svg",
+      "src": "eye_left/eye-left-21.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-22",
+      "kind": "svg",
+      "src": "eye_left/eye-left-22.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-23",
+      "kind": "svg",
+      "src": "eye_left/eye-left-23.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-24",
+      "kind": "svg",
+      "src": "eye_left/eye-left-24.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-25",
+      "kind": "svg",
+      "src": "eye_left/eye-left-25.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-26",
+      "kind": "svg",
+      "src": "eye_left/eye-left-26.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-27",
+      "kind": "svg",
+      "src": "eye_left/eye-left-27.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-28",
+      "kind": "svg",
+      "src": "eye_left/eye-left-28.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-29",
+      "kind": "svg",
+      "src": "eye_left/eye-left-29.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-30",
+      "kind": "svg",
+      "src": "eye_left/eye-left-30.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-31",
+      "kind": "svg",
+      "src": "eye_left/eye-left-31.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-32",
+      "kind": "svg",
+      "src": "eye_left/eye-left-32.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-33",
+      "kind": "svg",
+      "src": "eye_left/eye-left-33.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-left-34",
+      "kind": "svg",
+      "src": "eye_left/eye-left-34.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-01",
+      "kind": "svg",
+      "src": "eye_right/eye-right-01.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-02",
+      "kind": "svg",
+      "src": "eye_right/eye-right-02.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-03",
+      "kind": "svg",
+      "src": "eye_right/eye-right-03.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-04",
+      "kind": "svg",
+      "src": "eye_right/eye-right-04.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-05",
+      "kind": "svg",
+      "src": "eye_right/eye-right-05.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-06",
+      "kind": "svg",
+      "src": "eye_right/eye-right-06.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-07",
+      "kind": "svg",
+      "src": "eye_right/eye-right-07.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-08",
+      "kind": "svg",
+      "src": "eye_right/eye-right-08.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-09",
+      "kind": "svg",
+      "src": "eye_right/eye-right-09.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-10",
+      "kind": "svg",
+      "src": "eye_right/eye-right-10.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-11",
+      "kind": "svg",
+      "src": "eye_right/eye-right-11.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-12",
+      "kind": "svg",
+      "src": "eye_right/eye-right-12.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-13",
+      "kind": "svg",
+      "src": "eye_right/eye-right-13.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-14",
+      "kind": "svg",
+      "src": "eye_right/eye-right-14.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-16",
+      "kind": "svg",
+      "src": "eye_right/eye-right-16.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-17",
+      "kind": "svg",
+      "src": "eye_right/eye-right-17.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-18",
+      "kind": "svg",
+      "src": "eye_right/eye-right-18.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-19",
+      "kind": "svg",
+      "src": "eye_right/eye-right-19.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-20",
+      "kind": "svg",
+      "src": "eye_right/eye-right-20.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-21",
+      "kind": "svg",
+      "src": "eye_right/eye-right-21.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-22",
+      "kind": "svg",
+      "src": "eye_right/eye-right-22.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-23",
+      "kind": "svg",
+      "src": "eye_right/eye-right-23.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-24",
+      "kind": "svg",
+      "src": "eye_right/eye-right-24.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-25",
+      "kind": "svg",
+      "src": "eye_right/eye-right-25.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-26",
+      "kind": "svg",
+      "src": "eye_right/eye-right-26.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-27",
+      "kind": "svg",
+      "src": "eye_right/eye-right-27.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-28",
+      "kind": "svg",
+      "src": "eye_right/eye-right-28.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-29",
+      "kind": "svg",
+      "src": "eye_right/eye-right-29.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-30",
+      "kind": "svg",
+      "src": "eye_right/eye-right-30.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-31",
+      "kind": "svg",
+      "src": "eye_right/eye-right-31.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-32",
+      "kind": "svg",
+      "src": "eye_right/eye-right-32.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-33",
+      "kind": "svg",
+      "src": "eye_right/eye-right-33.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eye-right-34",
+      "kind": "svg",
+      "src": "eye_right/eye-right-34.svg",
+      "colorBindings": [
+        {
+          "target": "#009BFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-01",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-01.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-02",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-02.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-03",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-03.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-04",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-04.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-05",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-05.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-06",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-06.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-07",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-07.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-08",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-08.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-09",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-09.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-10",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-10.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-11",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-11.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-12",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-12.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-13",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-13.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-14",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-14.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-15",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-15.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-16",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-16.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-17",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-17.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-18",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-18.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-19",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-19.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-20",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-20.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-left-21",
+      "kind": "svg",
+      "src": "eyebrow_left/eyebrow-left-21.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-01",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-01.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-02",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-02.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-03",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-03.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-04",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-04.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-05",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-05.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-06",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-06.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-07",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-07.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-08",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-08.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-09",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-09.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-10",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-10.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-11",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-11.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-12",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-12.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-13",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-13.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-14",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-14.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-15",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-15.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-16",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-16.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-17",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-17.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-18",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-18.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-19",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-19.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-20",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-20.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-eyebrow-right-21",
+      "kind": "svg",
+      "src": "eyebrow_right/eyebrow-right-21.svg",
+      "colorBindings": [
+        {
+          "target": "#FFEB87",
+          "from": [
+            "self",
+            "hair_front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-glasses-01",
+      "kind": "svg",
+      "src": "glasses/glasses-01.svg",
+      "colorBindings": [
+        {
+          "target": "#00FFFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-glasses-02",
+      "kind": "svg",
+      "src": "glasses/glasses-02.svg",
+      "colorBindings": [
+        {
+          "target": "#00FFFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-glasses-03",
+      "kind": "svg",
+      "src": "glasses/glasses-03.svg",
+      "colorBindings": [
+        {
+          "target": "#00FFFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-glasses-04",
+      "kind": "svg",
+      "src": "glasses/glasses-04.svg",
+      "colorBindings": [
+        {
+          "target": "#00FFFF",
+          "from": [
+            "self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-01",
+      "kind": "svg",
+      "src": "nose/nose-01.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-02",
+      "kind": "svg",
+      "src": "nose/nose-02.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-03",
+      "kind": "svg",
+      "src": "nose/nose-03.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-04",
+      "kind": "svg",
+      "src": "nose/nose-04.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-05",
+      "kind": "svg",
+      "src": "nose/nose-05.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-06",
+      "kind": "svg",
+      "src": "nose/nose-06.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-07",
+      "kind": "svg",
+      "src": "nose/nose-07.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-08",
+      "kind": "svg",
+      "src": "nose/nose-08.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-09",
+      "kind": "svg",
+      "src": "nose/nose-09.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-10",
+      "kind": "svg",
+      "src": "nose/nose-10.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-11",
+      "kind": "svg",
+      "src": "nose/nose-11.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-12",
+      "kind": "svg",
+      "src": "nose/nose-12.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-13",
+      "kind": "svg",
+      "src": "nose/nose-13.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-14",
+      "kind": "svg",
+      "src": "nose/nose-14.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-15",
+      "kind": "svg",
+      "src": "nose/nose-15.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-16",
+      "kind": "svg",
+      "src": "nose/nose-16.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-17",
+      "kind": "svg",
+      "src": "nose/nose-17.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-18",
+      "kind": "svg",
+      "src": "nose/nose-18.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-nose-19",
+      "kind": "svg",
+      "src": "nose/nose-19.svg",
+      "colorBindings": [
+        {
+          "target": "#50C7FF",
+          "from": [
+            "face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asset-accessory-back-04",
+      "kind": "svg",
+      "src": "accessory_back/accessory-back-04.svg"
+    },
+    {
+      "id": "asset-accessory-back-05",
+      "kind": "svg",
+      "src": "accessory_back/accessory-back-05.svg"
+    },
+    {
+      "id": "asset-accessory-back-06",
+      "kind": "svg",
+      "src": "accessory_back/accessory-back-06.svg"
+    },
+    {
+      "id": "asset-accessory-front-01",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-01.svg"
+    },
+    {
+      "id": "asset-accessory-front-02",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-02.svg"
+    },
+    {
+      "id": "asset-accessory-front-03",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-03.svg"
+    },
+    {
+      "id": "asset-accessory-front-04",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-04.svg"
+    },
+    {
+      "id": "asset-accessory-front-05",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-05.svg"
+    },
+    {
+      "id": "asset-accessory-front-06",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-06.svg"
+    },
+    {
+      "id": "asset-accessory-front-07",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-07.svg"
+    },
+    {
+      "id": "asset-accessory-front-08",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-08.svg"
+    },
+    {
+      "id": "asset-accessory-front-09",
+      "kind": "svg",
+      "src": "accessory_front/accessory-front-09.svg"
+    }
+  ],
+  "groups": [
+    {
+      "id": "hair",
+      "name": "髪",
+      "slots": [
+        "hair_front",
+        "hair_back"
+      ]
+    },
+    {
+      "id": "eye",
+      "name": "目",
+      "slots": [
+        "eye_left",
+        "eye_right"
+      ],
+      "mirror": true
+    },
+    {
+      "id": "eyebrow",
+      "name": "眉",
+      "slots": [
+        "eyebrow_left",
+        "eyebrow_right"
+      ],
+      "mirror": true
+    },
+    {
+      "id": "accessory",
+      "name": "アクセサリ",
+      "slots": [
+        "accessory_front",
+        "accessory_back"
+      ]
+    }
+  ]
+}

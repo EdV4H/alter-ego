@@ -1,0 +1,210 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.error {
+  margin: var(--space-6);
+  padding: var(--space-4);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-md);
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+/* ---- 3 ペイン ---- */
+
+.main {
+  --header-height: 72px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 380px;
+  grid-template-areas: "nav preview inspector";
+  align-items: start;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  position: sticky;
+  top: var(--space-4);
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background: var(--bg-hover);
+}
+
+.navItem[aria-current="true"] {
+  background: var(--bg-inverse);
+  color: var(--text-inverse);
+  cursor: default;
+}
+
+.navIcon {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  /* アセットは黒い線なので、テーマに関係なく白地に置く */
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.preview {
+  grid-area: preview;
+  position: sticky;
+  top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: min(640px, calc(100vh - var(--header-height) - var(--space-6)));
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-surface);
+  /* 実際の背景はアバターの背景設定（features/background）が style で上書きする */
+  background-color: var(--bg-surface);
+}
+
+.avatar {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+}
+
+.loading {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.inspector {
+  grid-area: inspector;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* ---- 幅が狭いとき: カテゴリを上の横スクロールに ---- */
+
+@media (max-width: 1100px) {
+  .main {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-areas:
+      "nav nav"
+      "preview inspector";
+  }
+
+  .nav {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+  }
+
+  .navItem {
+    width: auto;
+  }
+}
+
+/* ---- スマホ: プレビュー → カテゴリ → パネルの縦積み ---- */
+
+@media (max-width: 760px) {
+  .header {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "preview"
+      "nav"
+      "inspector";
+    padding: 0 var(--space-4) var(--space-4);
+  }
+
+  .preview {
+    position: static;
+    min-height: 0;
+    padding: var(--space-3);
+  }
+}
+
+/* ---- スキーマの切り替え ---- */
+
+.schemaSelect {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.schemaSelectLabel {
+  font-weight: var(--weight-bold);
+}
+
+.select {
+  height: 32px;
+  padding: 0 var(--space-2);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.select:hover {
+  background: var(--bg-hover);
+}

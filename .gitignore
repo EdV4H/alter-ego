@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Playwright
+test-results/
+playwright-report/
+
+# 人のスキーマの素材（SVG）は公開しない。手元にだけ置く（apps/react-web/README.md）
+apps/react-web/public/assets/*
+!apps/react-web/public/assets/mascot/

@@ -1,0 +1,56 @@
+{
+  "name": "@edv4h/alter-ego-schema",
+  "version": "0.1.0",
+  "description": "JSON Schema definitions and validators for alter-ego.",
+  "license": "MIT",
+  "author": "Yusuke Maruyama",
+  "keywords": [
+    "avatar",
+    "headless",
+    "schema",
+    "alter-ego"
+  ],
+  "homepage": "https://github.com/EdV4H/alter-ego/tree/main/packages/schema#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdV4H/alter-ego.git",
+    "directory": "packages/schema"
+  },
+  "bugs": {
+    "url": "https://github.com/EdV4H/alter-ego/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schema.json": "./schema/avatar.schema.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "schema"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "generate": "node scripts/generate-types.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "^15.0.4",
+    "tsdown": "^0.21.9",
+    "typescript": "^5.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

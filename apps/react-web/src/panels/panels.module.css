@@ -1,0 +1,168 @@
+.thumbGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--thumb-min), 1fr));
+  gap: var(--space-2);
+}
+
+.thumb {
+  aspect-ratio: 1 / 1;
+  padding: var(--space-1);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  /* アセットは黒い線で描かれているので、ダークテーマでも白地に置く */
+  background: #ffffff;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumb:hover {
+  border-color: var(--text-muted);
+}
+
+.thumb[aria-pressed="true"] {
+  border-color: var(--border-strong);
+  outline: 2px solid var(--border-strong);
+  outline-offset: 1px;
+  cursor: default;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.controlLabel {
+  flex: 0 0 4em;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.controlButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.fileInput {
+  font-size: var(--text-sm);
+}
+
+.backgroundIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #fde2e4 0%, #cdeac0 100%);
+}
+
+/* ---- 開発者向けの表示 ---- */
+
+.code {
+  max-height: 280px;
+  margin: 0;
+  padding: var(--space-3);
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  background: var(--bg-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.note {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.errorText {
+  font-size: var(--text-sm);
+  color: var(--danger-text);
+}
+
+.dialogText {
+  margin: 0;
+}
+
+.details summary {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.details[open] summary {
+  margin-bottom: var(--space-2);
+}
+
+.log {
+  display: flex;
+  flex-direction: column;
+  max-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.logItem {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.logTime {
+  color: var(--text-muted);
+}
+
+.logEvent {
+  color: var(--text-primary);
+  font-weight: var(--weight-bold);
+}
+
+.logEventError {
+  color: var(--danger-text);
+  font-weight: var(--weight-bold);
+}
+
+.logDetail {
+  overflow-wrap: anywhere;
+  color: var(--text-secondary);
+}
+
+.textIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  background: var(--bg-inverse);
+  color: var(--text-inverse);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}

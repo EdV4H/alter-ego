@@ -1,0 +1,52 @@
+{
+  "name": "@edv4h/alter-ego-plugin-renderer-canvas",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Canvas 2D renderer plugin for alter-ego.",
+  "license": "MIT",
+  "keywords": [
+    "avatar",
+    "headless",
+    "schema",
+    "alter-ego"
+  ],
+  "homepage": "https://github.com/EdV4H/alter-ego/tree/main/plugins/renderer-canvas#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdV4H/alter-ego.git",
+    "directory": "plugins/renderer-canvas"
+  },
+  "bugs": {
+    "url": "https://github.com/EdV4H/alter-ego/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@edv4h/alter-ego-core": "workspace:^"
+  },
+  "devDependencies": {
+    "tsdown": "^0.21.9",
+    "typescript": "^5.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

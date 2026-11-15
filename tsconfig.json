@@ -1,0 +1,13 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/schema" },
+    { "path": "./packages/react" },
+    { "path": "./packages/vue" },
+    { "path": "./plugins/renderer-svg" },
+    { "path": "./plugins/renderer-canvas" },
+    { "path": "./plugins/loader-http" },
+    { "path": "./plugins/loader-memory" }
+  ]
+}

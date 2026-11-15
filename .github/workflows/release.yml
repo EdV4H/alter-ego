@@ -1,0 +1,41 @@
+name: Release
+
+# main に changeset が溜まっていれば「版を上げる PR」を作り、
+# その PR がマージされたら npm に公開する（ADR-0014、手順は docs/release.md）。
+on:
+  push:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write # 版上げのブランチと git tag を push する
+  pull-requests: write # 版上げの PR を作る
+  id-token: write # npm の Trusted Publishing（OIDC）に必要
+
+jobs:
+  release:
+    # fork では動かさない
+    if: github.repository == 'EdV4H/alter-ego'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.13.1
+      # Trusted Publishing には Node 22.14 以上と npm CLI 11.5.1 以上が要る。
+      # registry-url は付けない（付けると空のトークンを使う .npmrc ができる）
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: pnpm
+      - run: npm install -g npm@^11.5.1
+      - run: pnpm install --frozen-lockfile
+      - uses: changesets/action@v1
+        with:
+          version: pnpm run version-packages
+          publish: pnpm run release
+          title: "🔖 chore: release packages"
+          commit: "🔖 chore: release packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
