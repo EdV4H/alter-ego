@@ -25,7 +25,7 @@ jobs:
           version: 10.13.1
       # Trusted Publishing には Node 22.14 以上と npm CLI 11.5.1 以上が要る。
       # registry-url は付けない（付けると空のトークンを使う .npmrc ができる）
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "24"
           cache: pnpm
