@@ -46,9 +46,9 @@
     "ajv": "^8.17.1"
   },
   "devDependencies": {
-    "json-schema-to-typescript": "^15.0.4",
-    "tsdown": "^0.21.9",
-    "typescript": "^5.7.0"
+    "json-schema-to-typescript": "^16.0.0",
+    "tsdown": "^0.23.7",
+    "typescript": "^7.0.2"
   },
   "publishConfig": {
     "access": "public"
