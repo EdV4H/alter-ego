@@ -6,12 +6,13 @@
 //   node scripts/publish-packages.mjs --allow-new  # 手元から初回公開。npm にまだ無いパッケージも出す
 //   node scripts/publish-packages.mjs --dry-run    # 何を出すかの確認だけ（npm publish --dry-run）
 //
-// pnpm pack で workspace:^ を実際の版に置き換えた tarball を作り、npm publish に渡す。
+// pnpm pack で workspace:^ を実際の版に置き換えた tarball を作り、展開したフォルダで npm publish する。
+// tarball のパスを npm publish に渡さないのは、npm の設定（allow-file）でファイル指定が禁止されている環境があるため。
 // pnpm publish を使わないのは、Trusted Publishing（OIDC）に対応している npm CLI に公開を任せるため。
 // 公開できた版ごとに `New tag: <name>@<version>` を出力し、git tag を付ける（changesets/action がこの行を読んで GitHub Release を作る）。
 
 import { execFileSync, spawnSync } from "node:child_process";
-import { mkdtempSync, readdirSync, readFileSync, existsSync, rmSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readdirSync, readFileSync, existsSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -89,12 +90,18 @@ try {
     const tarball = join(packDir, `${name.replace(/^@/, "").replace("/", "-")}-${version}.tgz`);
     if (!existsSync(tarball)) throw new Error(`tarball が見つかりません: ${tarball}`);
 
-    const publishArgs = ["publish", tarball, "--access", "public"];
+    // 展開した package/ で公開する（中身は tarball と同じ）
+    const unpacked = join(packDir, `${name.replace(/^@/, "").replace("/", "-")}-${version}`);
+    mkdirSync(unpacked);
+    execFileSync("tar", ["-xzf", tarball, "-C", unpacked], { stdio: "inherit" });
+    const pkgDir = join(unpacked, "package");
+
+    const publishArgs = ["publish", "--access", "public"];
     // プレリリース版（0.2.0-next.0 など）は latest にしない
     if (version.includes("-")) publishArgs.push("--tag", "next");
     if (dryRun) publishArgs.push("--dry-run");
     console.log(`+ npm ${publishArgs.join(" ")}`);
-    execFileSync("npm", publishArgs, { cwd: root, stdio: "inherit" });
+    execFileSync("npm", publishArgs, { cwd: pkgDir, stdio: "inherit" });
 
     if (dryRun) continue;
     const tag = `${name}@${version}`;

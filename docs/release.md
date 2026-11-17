@@ -67,5 +67,7 @@ CI はまだ npm に無いパッケージを飛ばします（警告だけ出し
 
 ## うまくいかないとき
 
+- `npm login` が npmjs.com 以外（社内のプロキシなど）に向かう: npm の設定で registry を変えている。そのターミナルでだけ `export npm_config_registry=https://registry.npmjs.org/` してから `npm login --auth-type=web` と `pnpm release` を実行する
+
 - `npm publish` が 404 や認証エラーになる: Trusted Publisher の設定（ワークフロー名が `release.yml` か）と、`package.json` の `repository.url` がリポジトリと一致しているかを確認する
 - 版を上げる PR ができない: リポジトリの Settings → Actions → General で「Allow GitHub Actions to create and approve pull requests」を有効にする
