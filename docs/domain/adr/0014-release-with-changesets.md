@@ -32,7 +32,7 @@ Changesets で版を上げ、main へのマージを起点に GitHub Actions が
 - 0.x の間は、壊れる変更を minor、それ以外を patch にする
 - 最初の版は 6 パッケージとも `0.1.0` にする（`0.0.0` は未公開の印として使っていた）
 - パッケージ間の依存は `workspace:^` で書く。公開時に `^0.1.0` になる
-- 公開は `scripts/publish-packages.mjs` が行う。`pnpm pack` で tarball を作り、`npm publish` に渡す。npm にまだ無い版だけを出し、公開した版に `<name>@<version>` の git tag を付ける
+- 公開は `scripts/publish-packages.mjs` が行う。`pnpm pack` で tarball を作り、展開したフォルダで `npm publish` する。npm にまだ無い版だけを出し、公開した版に `<name>@<version>` の git tag を付ける
   - `pnpm publish` を使わないのは、Trusted Publishing に対応している npm CLI（11.5.1 以上）に公開を任せるため
 - npm にまだ無いパッケージは CI では飛ばし、手元から `--allow-new` を付けて初回公開する。そのあと npm 上で Trusted Publisher を設定する
 - private のパッケージ（vue / plugin-loader-memory / plugin-renderer-canvas / apps）は版を上げず、公開もしない
