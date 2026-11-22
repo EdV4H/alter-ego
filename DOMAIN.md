@@ -41,6 +41,9 @@
 - [0012 - id の改名を renamedFrom で宣言し、保存した状態を読み込むときに読み替える](./docs/domain/adr/0012-state-renames-and-lenient-read.md)
 - [0013 - React 向けのフックを @edv4h/alter-ego-react として提供する](./docs/domain/adr/0013-react-bindings-package.md)
 - [0014 - Changesets で版を上げ、GitHub Actions から Trusted Publishing で npm に公開する](./docs/domain/adr/0014-release-with-changesets.md)
+- [0015 - 保存した状態を engine.load でエンジンに丸ごと読み込む](./docs/domain/adr/0015-engine-load-state.md)（proposed）
+- [0016 - 描いた SVG を PNG にする関数を renderer-svg に足し、背景は状態に入れない](./docs/domain/adr/0016-svg-to-png.md)（proposed）
+- [0017 - ランダムな状態を randomState で作り、パーツの選び方を差し替えられるようにする](./docs/domain/adr/0017-random-state.md)（proposed）
 
 ## 他ドキュメントとの関係
 
