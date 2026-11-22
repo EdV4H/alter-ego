@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest";
 import { createAvatarEngine, serializeState } from "@edv4h/alter-ego-core";
 import type { AvatarSchema } from "@edv4h/alter-ego-schema";
 import humanSchema from "../schemas/human.schema.json" with { type: "json" };
-import { applyStateToEngine } from "./state.js";
 
 const human = humanSchema as AvatarSchema;
 const make = () => createAvatarEngine({ schema: human, plugins: [] });
 
-describe("applyStateToEngine", () => {
+// 人型スキーマで engine.load（ADR-0015）が保存したとおりに戻すことを確かめる
+describe("engine.load（human スキーマ）", () => {
   it("別のエンジンで作った状態を、そのまま再現する", () => {
     const a = make();
     a.select({ slot: "hair_front", part: "hair-front-05", color: "#c43c3c" });
@@ -19,7 +19,7 @@ describe("applyStateToEngine", () => {
     a.setTransform("mouth", { dy: -8, scale: 1.2 });
 
     const b = make();
-    applyStateToEngine(b, serializeState(a.state));
+    b.load(serializeState(a.state));
     expect(b.state).toEqual(a.state);
   });
 
@@ -28,7 +28,7 @@ describe("applyStateToEngine", () => {
     saved.select({ slot: "face", part: "face-02" });
     const engine = make();
     engine.select({ slot: "glasses", part: "glasses-01" });
-    applyStateToEngine(engine, serializeState(saved.state));
+    engine.load(serializeState(saved.state));
     expect(engine.state.selections.glasses).toBeUndefined();
     expect(engine.state.selections.face?.partId).toBe("face-02");
   });
@@ -37,15 +37,14 @@ describe("applyStateToEngine", () => {
     const engine = make();
     const before = engine.state;
     expect(() =>
-      applyStateToEngine(engine, JSON.stringify({ selections: { face: { partId: "nope" } } })),
+      engine.load(JSON.stringify({ selections: { face: { partId: "nope" } } })),
     ).toThrow();
     expect(engine.state).toBe(before);
   });
 
   it("drop なら読めない Slot を捨て、残りは戻す", () => {
     const engine = make();
-    applyStateToEngine(
-      engine,
+    engine.load(
       JSON.stringify({ selections: { face: { partId: "face-02" }, removed_slot: { partId: "x" } } }),
       { unknown: "drop" },
     );

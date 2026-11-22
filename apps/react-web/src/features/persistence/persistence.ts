@@ -1,6 +1,5 @@
 import { serializeState, type AvatarEngine, type StateReadIssue } from "@edv4h/alter-ego-core";
 import type { AvatarSchema } from "@edv4h/alter-ego-schema";
-import { applyStateToEngine } from "../../editor/state.js";
 import {
   getBackground,
   setBackground,
@@ -61,7 +60,7 @@ export function restoreSaved(engine: AvatarEngine): boolean {
   if (!saved) return false;
   try {
     const issues: StateReadIssue[] = [];
-    applyStateToEngine(engine, saved.state, { unknown: "drop", onIssue: (i) => issues.push(i) });
+    engine.load(saved.state, { unknown: "drop", onIssue: (i) => issues.push(i) });
     if (saved.background) setBackground(saved.background);
     if (issues.length > 0) {
       console.info("[persistence] 保存した構成をスキーマに合わせて直しました", issues);
