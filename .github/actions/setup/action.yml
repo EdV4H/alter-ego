@@ -1,0 +1,19 @@
+name: Setup
+description: pnpm と Node を用意して依存を入れる（各ジョブで共通の準備）
+
+inputs:
+  node-version:
+    description: 使う Node の版
+    default: "22"
+
+runs:
+  using: composite
+  steps:
+    # pnpm の版は package.json の packageManager から読む（版の書き場所を 1 つにする）
+    - uses: pnpm/action-setup@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: pnpm
+    - run: pnpm install --frozen-lockfile
+      shell: bash

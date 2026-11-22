@@ -17,7 +17,7 @@
 2. PR を main にマージすると、Release ワークフローが「🔖 chore: release packages」という PR を作る（すでにあれば更新する）。版と CHANGELOG の変更だけが入っている
 3. その PR をマージすると、Release ワークフローが npm に公開し、`<name>@<version>` の git tag と GitHub Release を作る
 
-「版を上げる PR」は GitHub Actions の標準トークンで作るので、CI が走りません。中身は版と CHANGELOG だけなので、そのままマージして構いません。
+「版を上げる PR」は GitHub Actions の標準トークンで作るので、CI が走りません。そのため必須チェックの `CI OK` が付かず、auto-merge も効きません。中身は版と CHANGELOG だけなので、管理者が「Merge without waiting for requirements to be met」（必須チェックを待たずにマージ）でマージして構いません。
 
 ## 初回の公開（1 回だけ）
 
