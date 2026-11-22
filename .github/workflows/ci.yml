@@ -18,7 +18,7 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       - run: pnpm lint
       # TypeScript のファイル名は kebab-case にそろえる（大文字と _ を禁止）
@@ -38,7 +38,7 @@ jobs:
     name: typecheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       # 型の定義元は JSON Schema。生成物がコミット済みのものと一致するか検査する（ADR-0010）
       - run: pnpm --filter @edv4h/alter-ego-schema generate && git diff --exit-code packages/schema/src/types.generated.ts
@@ -53,7 +53,7 @@ jobs:
         # engines は node >=20。サポートする版すべてで回す
         node-version: ["20", "22", "24"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ matrix.node-version }}
@@ -67,7 +67,7 @@ jobs:
       matrix:
         node-version: ["20", "22", "24"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
         with:
           node-version: ${{ matrix.node-version }}
@@ -80,7 +80,7 @@ jobs:
     name: e2e (react-web)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       - run: pnpm --filter @alter-ego/app-react-web exec playwright install --with-deps chromium
       - run: pnpm --filter @alter-ego/app-react-web test:e2e
