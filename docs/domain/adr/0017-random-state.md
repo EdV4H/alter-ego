@@ -1,7 +1,7 @@
 ---
 id: 0017
 title: ランダムな状態を randomState で作り、パーツの選び方を差し替えられるようにする
-status: proposed
+status: accepted
 date: 2026-11-22
 deciders: [EdV4H]
 tags: [core, state, random]

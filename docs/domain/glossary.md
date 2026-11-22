@@ -44,6 +44,8 @@
 | **changeset** | 公開パッケージの版の上げ幅と変更の要約を書いた `.changeset/*.md` のファイル。溜まった changeset から版と CHANGELOG を作る（[ADR-0014](./adr/0014-release-with-changesets.md)） |
 | **Trusted Publishing** | GitHub Actions の OIDC で、トークンを置かずに npm に公開する仕組み。パッケージごとに npm 上で設定する（[ADR-0014](./adr/0014-release-with-changesets.md)） |
 | **renamedFrom** | Slot・Part・variant の以前の id の配列。保存した `AvatarState` を読み込むとき、旧 id を今の id に読み替えるのに使う（[ADR-0012](./adr/0012-state-renames-and-lenient-read.md)） |
+| **randomState** | スキーマに沿ったランダムな `AvatarState` を返す core の関数。乱数（`random`）と Part の選び方（`choosePart`）を差し替えられる（[ADR-0017](./adr/0017-random-state.md)） |
+| **背景** | アバターの後ろに塗る色や画像。`AvatarState` には入れず、アプリが状態と並べて持つ。PNG にするときは `svgToPng` の `background` に渡す（[ADR-0016](./adr/0016-svg-to-png.md)） |
 
 ## 書き表しの原則
 

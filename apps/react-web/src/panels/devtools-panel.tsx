@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createAvatarEngine, type AvatarEngine } from "@edv4h/alter-ego-core";
 import { applyInitialSelections } from "../app/config.js";
-import { applyStateToEngine, formatState } from "../editor/state.js";
+import { formatState } from "../editor/state.js";
 import { DEFAULT_BACKGROUND, setBackground } from "../features/background/background.js";
 import { clearEventLog, useEventLog } from "../features/devtools/event-log.js";
 import { Button } from "../ui/button.js";
@@ -14,7 +14,7 @@ import styles from "./panels.module.css";
 function resetToInitial(engine: AvatarEngine): void {
   const fresh = createAvatarEngine({ schema: engine.schema, plugins: [] });
   applyInitialSelections(fresh);
-  applyStateToEngine(engine, fresh.state);
+  engine.load(fresh.state);
   setBackground(DEFAULT_BACKGROUND);
 }
 
@@ -59,7 +59,7 @@ function StateSection({ engine, state }: { readonly engine: AvatarEngine; readon
           disabled={draft.trim() === ""}
           onClick={() => {
             try {
-              applyStateToEngine(engine, draft);
+              engine.load(draft);
               setDraft("");
               setMessage({ ok: true, text: "読み込みました" });
             } catch (e) {

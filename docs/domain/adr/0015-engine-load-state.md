@@ -1,7 +1,7 @@
 ---
 id: 0015
 title: 保存した状態を engine.load でエンジンに丸ごと読み込む
-status: proposed
+status: accepted
 date: 2026-11-22
 deciders: [EdV4H]
 tags: [core, state, engine]

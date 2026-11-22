@@ -13,6 +13,7 @@ import { PartsRegistryImpl } from "./registries/parts.js";
 import { RendererRegistryImpl } from "./registries/renderer.js";
 import { ResourceCache } from "./resource-cache.js";
 import { computeInitialState, deselectSlot, selectPart } from "./state.js";
+import { deserializeState, type DeserializeStateOptions } from "./state-json.js";
 import { resetSlotTransform, resolvePlacements, setSlotTransform } from "./transforms.js";
 import type {
   AvatarState,
@@ -41,6 +42,12 @@ export interface AvatarEngine {
   setTransform(slot: string, transform: Partial<SlotTransform>): void;
   /** Slot の変形を元に戻し state:change を発行する。slot を省略すると全 Slot を戻す */
   resetTransform(slot?: string): void;
+  /**
+   * 保存した状態（JSON 文字列か parse 済みの値）を読み込み、今の状態を丸ごと差し替える（ADR-0015）。
+   * options は deserializeState にそのまま渡す（ADR-0012）。state:change は 1 回だけ発行する。
+   * 読めなければ SelectionError を投げ、状態は変えない。
+   */
+  load(input: string | unknown, options?: DeserializeStateOptions): void;
   /**
    * 状態を変えずに、 全 renderer の update を呼ぶ。
    * 外部 state (renderer に渡したオプション等) が変わったが
@@ -206,6 +213,19 @@ export function createAvatarEngine(options: {
       }
       events.emit("state:change", state);
       updateRenderers();
+    },
+
+    load(input, readOptions) {
+      let next: AvatarState;
+      try {
+        next = deserializeState(schema, input, readOptions);
+      } catch (e) {
+        throw new SelectionError(e instanceof Error ? e.message : String(e));
+      }
+      // 保存した状態はエンジンが作ったものなので、グループの連動はかけ直さない（ADR-0015）
+      state = next;
+      events.emit("state:change", state);
+      void resolveResourcesForState().then(updateRenderers);
     },
 
     refresh() {

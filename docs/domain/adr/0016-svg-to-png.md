@@ -1,7 +1,7 @@
 ---
 id: 0016
 title: 描いた SVG を PNG にする関数を renderer-svg に足し、背景は状態に入れない
-status: proposed
+status: accepted
 date: 2026-11-22
 deciders: [EdV4H]
 tags: [renderer, export, png, background]

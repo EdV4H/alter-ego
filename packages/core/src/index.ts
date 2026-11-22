@@ -50,3 +50,5 @@ export {
 export type { ResolvedPlacement } from "./transforms.js";
 export { serializeState, deserializeState } from "./state-json.js";
 export type { DeserializeStateOptions, StateReadIssue } from "./state-json.js";
+export { randomState } from "./random.js";
+export type { RandomStateOptions } from "./random.js";

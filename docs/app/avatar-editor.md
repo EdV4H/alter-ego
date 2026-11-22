@@ -212,7 +212,7 @@ overlay を閉じる（成功）/ エラー表示（失敗）
 
 ## 9. PNG 出力
 
-ヘッダーの「PNG で保存」で現在のアバターを PNG として保存する（`src/features/export-png/`）。
+ヘッダーの「PNG で保存」で現在のアバターを PNG として保存する（`src/features/export-png/`）。書き出しは renderer-svg の `svgToPng` を使う（[ADR-0016](../domain/adr/0016-svg-to-png.md)）。透明と単色の背景は `svgToPng` に渡し、画像の背景は透明の PNG を作ってから重ねる。
 
 - **解像度**: SVG の viewBox から算出し、長辺 1024px に正規化（既定 400×400 → 1024×1024）。
 - **形式**: PNG（RGBA）。
@@ -249,7 +249,7 @@ Photo to Avatar の API キーをクライアントに露出させないため�
 - 構成（AvatarState）と背景を、このブラウザの localStorage に自動で保存する（変更から 300ms 待ってまとめて書く）。リロードしても続きから作業できる
 - 保存場所はスキーマの `metadata.name` ごとに分ける。スキーマで改名された id は読み替え、スキーマから消えたパーツなどは捨てて、読めた分だけ戻す。直した場合は今の id で保存し直す（[ADR-0012](../domain/adr/0012-state-renames-and-lenient-read.md)）。保存が全体として読めないときだけ、その保存は捨てて初期状態で始める
 - 背景画像が大きい（data URI で約 1MB 超）ときは背景を保存しない。保存に失敗しても作業は続けられる
-- 状態の検査と読み込みは `src/editor/state.ts` の `applyStateToEngine`（core の `deserializeState` で検査してから、select / deselect / setTransform を順に呼ぶ）
+- 状態の検査と読み込みは core の `engine.load`（[ADR-0015](../domain/adr/0015-engine-load-state.md)）。`deserializeState` で検査してから 1 回で差し替える
 
 ### 「開発」の項目
 

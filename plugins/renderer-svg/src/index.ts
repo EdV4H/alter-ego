@@ -304,3 +304,6 @@ export function svgRendererPlugin(options: SvgRendererOptions = {}): Plugin {
     },
   };
 }
+
+export { svgToPng } from "./png.js";
+export type { SvgToPngOptions } from "./png.js";
