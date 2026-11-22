@@ -47,7 +47,7 @@ function randomState(schema: AvatarSchema, options?: RandomStateOptions): Avatar
 
 ### 規則
 
-- 決める順番はスキーマの `slots` の順。グループの基準でない Slot は飛ばし、最後にグループの連動（`normalizeGroupSelections`）でそろえる
+- 決める順番はスキーマの `slots` の順。すべての Slot を決めてから、最後にグループの連動（`normalizeGroupSelections`）で基準 Slot に他の Slot をそろえる。`linkParts: false` のグループでも基準でない Slot が空にならないよう、基準でない Slot も一度は決める
 - required の Slot は必ず Part を入れる。optional の Slot は `fillRate` の確率で入れ、外れたら空にする
 - `choosePart` が範囲外の番号を返したらエラーにする
 - 色は、Slot に `palette` があればその中から選ぶ。無ければ `color` を書かない（Part の既定の色で描かれる）
