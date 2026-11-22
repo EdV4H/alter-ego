@@ -277,6 +277,40 @@ const state = deserializeState(schema, saved, {
 - 最上位・`selections`・`transforms` がオブジェクトでないときは、どちらでも例外を投げる
 - 読み替え（`renamed`）は `"error"` でも行い、`onIssue` で知らせる。`"drop"` を使うときは、何が消えたかを `onIssue` で利用者に見せるか記録することを勧める
 
+### エンジンへの読み込み
+
+保存した状態をエンジンに戻すときは `engine.load(saved, options?)` を使う（[ADR-0015](./domain/adr/0015-engine-load-state.md)）。
+
+```ts
+engine.load(saved, { unknown: "drop", onIssue: (issue) => console.info(issue) });
+```
+
+- 中身は `deserializeState` で読み、今の状態を丸ごと差し替える。`state:change` は 1 回だけ発行する
+- 読めた状態をそのまま使い、グループの連動や mirror の鏡像はかけ直さない
+- 読めなければ `SelectionError` を投げ、状態は変えない
+
+## ランダムな状態
+
+`randomState(schema, options?)`（`@edv4h/alter-ego-core`）は、スキーマに沿ったランダムな `AvatarState` を返す（[ADR-0017](./domain/adr/0017-random-state.md)）。エンジンを作らずに何体でも作れ、`engine.load` や `serializeState` にそのまま渡せる。
+
+```ts
+const candidate = randomState(schema, {
+  random: seededRandom(cellSeed),          // 既定は Math.random
+  fillRate: { glasses: 0.3 },              // optional の Slot に Part を入れる確率。既定は 0.5
+  choosePart: (slot, candidates) => spreadIndex(cell, slot, candidates.length), // 既定は等確率
+});
+engine.load(candidate);
+```
+
+- required の Slot は必ず Part を入れ、optional の Slot は `fillRate` の確率で入れる
+- 色は Slot の `palette` があればその中から選ぶ。variant は選ばず、変形は空
+- すべての Slot を決めてから、グループの基準 Slot に他の Slot をそろえる
+- 乱数は Slot ごとに 3 回（入れるか・Part・色）回す。`choosePart` を渡しても回す回数は変わらないので、Part の選び方を変えても色や入れるかどうかは変わらない
+
+## 背景
+
+背景は `AvatarState` に入れない（[ADR-0016](./domain/adr/0016-svg-to-png.md)）。背景はアバターの構成ではなく置き場所の見せ方なので、アプリが状態と並べて保存する（例: `{ state, background }`）。画面では `<svg>` の外で塗り、PNG にするときは `svgToPng` の `background` に渡す（[描画を追加する](./plugins/renderer.md#png-への書き出し)）。
+
 ## 色（color）の値フォーマット
 
 `Part.variants[].overrides.color` と `Selection.color` が取る色値は **hex 形式のみ**とする。

@@ -97,6 +97,23 @@ Registry は複数 Renderer の登録を許す。実用上よくあるパター�
 
 mount ターゲットの複数指定 API（どの Renderer にどの要素を渡すか）は仕様検討中。
 
+## PNG への書き出し
+
+`@edv4h/alter-ego-plugin-renderer-svg` は、描画中の `<svg>` を PNG にする `svgToPng` を持つ（[ADR-0016](../domain/adr/0016-svg-to-png.md)）。ブラウザ専用。
+
+```ts
+import { svgToPng } from "@edv4h/alter-ego-plugin-renderer-svg";
+
+const png = await svgToPng(svgElement, { size: 512, background: "#ffd84d" });
+```
+
+- 渡した `<svg>` は変えない。複製してから寸法を固定し、`<image>` を data URI にして canvas の汚染を避ける。読めなかった画像は外して続ける
+- 寸法は viewBox から長辺を `size` に合わせる。viewBox が無いか壊れていれば `size` × `size`
+- `background` は hex だけ。省略すると透明
+- 画像を背景にしたいときは、透明の PNG を作ってからアプリで重ねる
+
+Exporter の仕様が決まるまでの、SVG Renderer 専用の書き出し手段という位置づけ。
+
 ## サーバーサイド利用
 
 Node.js 環境では DOM がないため、次の前提が必要:
