@@ -1,6 +1,6 @@
 {
   "name": "@edv4h/alter-ego-plugin-loader-http",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HTTP loader plugin for alter-ego.",
   "license": "MIT",
   "author": "Yusuke Maruyama",
