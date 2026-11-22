@@ -31,6 +31,23 @@ pnpm --filter @alter-ego/app-react-web dev   # リファレンス実装アプリ
 
 PR を出す前に、CI と同じ `typecheck → lint → test → build → lint:pkg` が通ることを確認してください。
 
+## CI
+
+PR と main への push で [CI](./.github/workflows/ci.yml) が走ります。ジョブは並列です。
+
+| ジョブ | 内容 |
+| --- | --- |
+| `lint` | oxlint と、TypeScript のファイル名が kebab-case か |
+| `typecheck` | スキーマからの型生成が最新か（ADR-0010）と型検査 |
+| `test (Node 20/22/24)` | vitest |
+| `build (Node 20/22/24)` | ビルドと publint |
+| `e2e (react-web)` | デモアプリの Playwright 煙テスト |
+| `CI OK` | 上のジョブがすべて通ったか |
+
+main のブランチ保護で必須にしているのは `CI OK` だけです。ジョブを足すときは `CI OK` の `needs` に足してください（ブランチ保護の設定は直さなくて済みます）。
+
+PR では auto-merge を使えます。PR の「Enable auto-merge」を押しておくと、`CI OK` が通った時点でマージされます。
+
 ## リポジトリ構成
 
 | ディレクトリ | 内容 |

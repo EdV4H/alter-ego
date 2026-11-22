@@ -5,47 +5,83 @@ on:
   push:
     branches: [main]
 
+# 同じ PR に続けて push したら、古い実行は止める（main は止めない）
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
 jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+      # TypeScript のファイル名は kebab-case にそろえる（大文字と _ を禁止）
+      - name: check filenames
+        run: |
+          bad=$(git ls-files '*.ts' '*.tsx' | while read -r f; do
+            base=$(basename "$f"); base=${base%.tsx}; base=${base%.ts}
+            if echo "$base" | grep -qE '[A-Z_]'; then echo "$f"; fi
+          done)
+          if [ -n "$bad" ]; then
+            echo "::error::kebab-case でないファイル名があります"
+            echo "$bad"
+            exit 1
+          fi
+
+  typecheck:
+    name: typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      # 型の定義元は JSON Schema。生成物がコミット済みのものと一致するか検査する（ADR-0010）
+      - run: pnpm --filter @edv4h/alter-ego-schema generate && git diff --exit-code packages/schema/src/types.generated.ts
+      - run: pnpm typecheck
+
   test:
+    name: test (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # engines は node >=20。サポートする版すべてで回す
+        node-version: ["20", "22", "24"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: pnpm test
+
+  build:
+    name: build (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         node-version: ["20", "22", "24"]
-    name: test (Node ${{ matrix.node-version }})
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.13.1
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/setup
         with:
           node-version: ${{ matrix.node-version }}
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      # 型の定義元は JSON Schema。生成物がコミット済みのものと一致するか検査する（ADR-0010）
-      - run: pnpm --filter @edv4h/alter-ego-schema generate && git diff --exit-code packages/schema/src/types.generated.ts
-      - run: pnpm typecheck
-      - run: pnpm lint
-      - run: pnpm test
       - run: pnpm build
       # 公開パッケージの exports / files がビルド成果物と一致しているかを検査する
       - run: pnpm lint:pkg
 
   # デモアプリの煙テスト（Playwright）。ブラウザの用意に時間がかかるので、Node 1 本だけで回す
   e2e:
-    runs-on: ubuntu-latest
     name: e2e (react-web)
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.13.1
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup
       - run: pnpm --filter @alter-ego/app-react-web exec playwright install --with-deps chromium
       - run: pnpm --filter @alter-ego/app-react-web test:e2e
       - uses: actions/upload-artifact@v4
@@ -56,3 +92,18 @@ jobs:
             apps/react-web/playwright-report/
             apps/react-web/test-results/
           retention-days: 7
+
+  # ブランチ保護の必須チェックはこの 1 つだけにする。
+  # ジョブや matrix を足し引きしても、ブランチ保護の設定を直さずに済む
+  ci-ok:
+    name: CI OK
+    if: always()
+    needs: [lint, typecheck, test, build, e2e]
+    runs-on: ubuntu-latest
+    steps:
+      - name: すべてのジョブが通ったか
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
+        run: |
+          echo "::error::通らなかったジョブがあります: ${{ toJSON(needs) }}"
+          exit 1
+      - run: echo "すべてのジョブが通りました"
