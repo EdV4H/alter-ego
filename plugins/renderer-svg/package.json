@@ -1,6 +1,6 @@
 {
   "name": "@edv4h/alter-ego-plugin-renderer-svg",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "SVG renderer plugin for alter-ego.",
   "license": "MIT",
   "author": "Yusuke Maruyama",
